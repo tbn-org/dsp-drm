@@ -1,0 +1,667 @@
+{
+ "Resources": {
+  "tbndspdrmplayliststgfunctionServiceRoleE3279489": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/tbn-dsp-drm-playlist-stg-function/ServiceRole/Resource"
+   }
+  },
+  "tbndspdrmplayliststgfunctionA597DEF3": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": {
+      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+     },
+     "S3Key": "0c2860a3f45e74135496e6638a8f09e7f06fe835726c6ef9309d4435bc4f637f.zip"
+    },
+    "Description": "lambda function to handler /playlist dsp endpoint.",
+    "Environment": {
+     "Variables": {
+      "FEED_LINK_URL": "https://6wbo1srmr9.execute-api.us-west-2.amazonaws.com/prod",
+      "JWPLAYER_API_KEY": "tbn-dsp-jwplayer",
+      "DSP_DRM_SECRET": "DSP_DRM_SECRET",
+      "AD_MARKERS_TABLE": "tbn-dsp-adbreaks",
+      "JW_PROPERTY": "",
+      "env": "stg"
+     }
+    },
+    "FunctionName": "tbn-dsp-drm-playlist-stg-function",
+    "Handler": "handler_playlist.lambda_handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "tbndspdrmplayliststgfunctionServiceRoleE3279489",
+      "Arn"
+     ]
+    },
+    "Runtime": "python3.9",
+    "Timeout": 60
+   },
+   "DependsOn": [
+    "tbndspdrmplayliststgfunctionServiceRoleE3279489"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/tbn-dsp-drm-playlist-stg-function/Resource",
+    "aws:asset:path": "asset.0c2860a3f45e74135496e6638a8f09e7f06fe835726c6ef9309d4435bc4f637f",
+    "aws:asset:is-bundled": true,
+    "aws:asset:property": "Code"
+   }
+  },
+  "tbndspdrmmediastgfunctionServiceRole276915CD": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/tbn-dsp-drm-media-stg-function/ServiceRole/Resource"
+   }
+  },
+  "tbndspdrmmediastgfunctionServiceRoleDefaultPolicy58834F0E": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "dynamodb:*",
+       "Effect": "Allow",
+       "Resource": [
+        "arn:aws:dynamodb:us-west-2:690231661505:table/tbn-dsp-adbreaks",
+        {
+         "Ref": "AWS::NoValue"
+        }
+       ]
+      },
+      {
+       "Action": [
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:GetSecretValue"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":secretsmanager:",
+           {
+            "Ref": "AWS::Region"
+           },
+           ":",
+           {
+            "Ref": "AWS::AccountId"
+           },
+           ":secret:DSP_DRM_SECRET-??????"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":secretsmanager:",
+           {
+            "Ref": "AWS::Region"
+           },
+           ":",
+           {
+            "Ref": "AWS::AccountId"
+           },
+           ":secret:tbn-dsp-jwplayer-??????"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "tbndspdrmmediastgfunctionServiceRoleDefaultPolicy58834F0E",
+    "Roles": [
+     {
+      "Ref": "tbndspdrmmediastgfunctionServiceRole276915CD"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/tbn-dsp-drm-media-stg-function/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "tbndspdrmmediastgfunction8D54501D": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": {
+      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+     },
+     "S3Key": "0c2860a3f45e74135496e6638a8f09e7f06fe835726c6ef9309d4435bc4f637f.zip"
+    },
+    "Description": " lambda function to handler /media dsp endpoint",
+    "Environment": {
+     "Variables": {
+      "FEED_LINK_URL": "https://6wbo1srmr9.execute-api.us-west-2.amazonaws.com/prod",
+      "JWPLAYER_API_KEY": "tbn-dsp-jwplayer",
+      "DSP_DRM_SECRET": "DSP_DRM_SECRET",
+      "AD_MARKERS_TABLE": "tbn-dsp-adbreaks",
+      "JW_PROPERTY": "",
+      "env": "stg"
+     }
+    },
+    "FunctionName": "tbn-dsp-drm-media-stg-function",
+    "Handler": "handler_media.lambda_handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "tbndspdrmmediastgfunctionServiceRole276915CD",
+      "Arn"
+     ]
+    },
+    "Runtime": "python3.9",
+    "Timeout": 60
+   },
+   "DependsOn": [
+    "tbndspdrmmediastgfunctionServiceRoleDefaultPolicy58834F0E",
+    "tbndspdrmmediastgfunctionServiceRole276915CD"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/tbn-dsp-drm-media-stg-function/Resource",
+    "aws:asset:path": "asset.0c2860a3f45e74135496e6638a8f09e7f06fe835726c6ef9309d4435bc4f637f",
+    "aws:asset:is-bundled": true,
+    "aws:asset:property": "Code"
+   }
+  },
+  "tbndspdrmappconfigstgfunctionServiceRole7BC1946E": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/tbn-dsp-drm-appconfig-stg-function/ServiceRole/Resource"
+   }
+  },
+  "tbndspdrmappconfigstgfunctionACFC7849": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": {
+      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+     },
+     "S3Key": "0c2860a3f45e74135496e6638a8f09e7f06fe835726c6ef9309d4435bc4f637f.zip"
+    },
+    "Description": "lambda function to handler /appconfig dsp endpoint.",
+    "Environment": {
+     "Variables": {
+      "FEED_LINK_URL": "https://6wbo1srmr9.execute-api.us-west-2.amazonaws.com/prod",
+      "JWPLAYER_API_KEY": "tbn-dsp-jwplayer",
+      "DSP_DRM_SECRET": "DSP_DRM_SECRET",
+      "AD_MARKERS_TABLE": "tbn-dsp-adbreaks",
+      "JW_PROPERTY": "",
+      "env": "stg"
+     }
+    },
+    "FunctionName": "tbn-dsp-drm-appconfig-stg-function",
+    "Handler": "handler_appconfig.lambda_handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "tbndspdrmappconfigstgfunctionServiceRole7BC1946E",
+      "Arn"
+     ]
+    },
+    "Runtime": "python3.9",
+    "Timeout": 60
+   },
+   "DependsOn": [
+    "tbndspdrmappconfigstgfunctionServiceRole7BC1946E"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/tbn-dsp-drm-appconfig-stg-function/Resource",
+    "aws:asset:path": "asset.0c2860a3f45e74135496e6638a8f09e7f06fe835726c6ef9309d4435bc4f637f",
+    "aws:asset:is-bundled": true,
+    "aws:asset:property": "Code"
+   }
+  },
+  "tbndspdrmsearchstgfunctionServiceRoleAC9CCDAE": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/tbn-dsp-drm-search-stg-function/ServiceRole/Resource"
+   }
+  },
+  "tbndspdrmsearchstgfunction51E3DE3E": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": {
+      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+     },
+     "S3Key": "0c2860a3f45e74135496e6638a8f09e7f06fe835726c6ef9309d4435bc4f637f.zip"
+    },
+    "Description": "lambda function to handler /search dsp endpoint.",
+    "Environment": {
+     "Variables": {
+      "FEED_LINK_URL": "https://6wbo1srmr9.execute-api.us-west-2.amazonaws.com/prod",
+      "JWPLAYER_API_KEY": "tbn-dsp-jwplayer",
+      "DSP_DRM_SECRET": "DSP_DRM_SECRET",
+      "AD_MARKERS_TABLE": "tbn-dsp-adbreaks",
+      "JW_PROPERTY": "",
+      "env": "stg"
+     }
+    },
+    "FunctionName": "tbn-dsp-drm-search-stg-function",
+    "Handler": "handler_search.lambda_handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "tbndspdrmsearchstgfunctionServiceRoleAC9CCDAE",
+      "Arn"
+     ]
+    },
+    "Runtime": "python3.9",
+    "Timeout": 60
+   },
+   "DependsOn": [
+    "tbndspdrmsearchstgfunctionServiceRoleAC9CCDAE"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/tbn-dsp-drm-search-stg-function/Resource",
+    "aws:asset:path": "asset.0c2860a3f45e74135496e6638a8f09e7f06fe835726c6ef9309d4435bc4f637f",
+    "aws:asset:is-bundled": true,
+    "aws:asset:property": "Code"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/zWOTQ6CMBCFz+K+jIheQEhcm3oAUtqRDJQ2YVqNabi7BcLqez/JvKngUlZQntSXC23GwlIH6RWUHkWO2mTV1BkF6RGdDuSdaN7u0IsgNUGS3uIab3x6S/q32l0tgq+tYsbAcF+RPdRRjxhqxbgIiezjrFFsbV7uyfXbuaPIuvHO0D7pvEEY+PypSrjlxwcmKuboAk0IcucfM7BZ8tUAAAA="
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/CDKMetadata/Default"
+   },
+   "Condition": "CDKMetadataAvailable"
+  }
+ },
+ "Conditions": {
+  "CDKMetadataAvailable": {
+   "Fn::Or": [
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "af-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ca-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "cn-north-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "cn-northwest-1"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-north-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-3"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "me-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "sa-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-east-2"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-west-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-west-2"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "Outputs": {
+  "ExportsOutputFnGetAtttbndspdrmplayliststgfunctionA597DEF3ArnD2AB38D7": {
+   "Value": {
+    "Fn::GetAtt": [
+     "tbndspdrmplayliststgfunctionA597DEF3",
+     "Arn"
+    ]
+   },
+   "Export": {
+    "Name": "dspdrminfrastackstgtbndspdrmstackstg20188CC9:ExportsOutputFnGetAtttbndspdrmplayliststgfunctionA597DEF3ArnD2AB38D7"
+   }
+  },
+  "ExportsOutputFnGetAtttbndspdrmsearchstgfunction51E3DE3EArn499D80B4": {
+   "Value": {
+    "Fn::GetAtt": [
+     "tbndspdrmsearchstgfunction51E3DE3E",
+     "Arn"
+    ]
+   },
+   "Export": {
+    "Name": "dspdrminfrastackstgtbndspdrmstackstg20188CC9:ExportsOutputFnGetAtttbndspdrmsearchstgfunction51E3DE3EArn499D80B4"
+   }
+  },
+  "ExportsOutputFnGetAtttbndspdrmappconfigstgfunctionACFC7849Arn0E0DF5FF": {
+   "Value": {
+    "Fn::GetAtt": [
+     "tbndspdrmappconfigstgfunctionACFC7849",
+     "Arn"
+    ]
+   },
+   "Export": {
+    "Name": "dspdrminfrastackstgtbndspdrmstackstg20188CC9:ExportsOutputFnGetAtttbndspdrmappconfigstgfunctionACFC7849Arn0E0DF5FF"
+   }
+  },
+  "ExportsOutputFnGetAtttbndspdrmmediastgfunction8D54501DArnB756C6F2": {
+   "Value": {
+    "Fn::GetAtt": [
+     "tbndspdrmmediastgfunction8D54501D",
+     "Arn"
+    ]
+   },
+   "Export": {
+    "Name": "dspdrminfrastackstgtbndspdrmstackstg20188CC9:ExportsOutputFnGetAtttbndspdrmmediastgfunction8D54501DArnB756C6F2"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

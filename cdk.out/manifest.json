@@ -1,0 +1,1583 @@
+{
+  "version": "34.0.0",
+  "artifacts": {
+    "dspdrminfrastackdevtbndspdrmdatabasestackdevA1758F65.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "dspdrminfrastackdevtbndspdrmdatabasestackdevA1758F65.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "dspdrminfrastackdevtbndspdrmdatabasestackdevA1758F65": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "dspdrminfrastackdevtbndspdrmdatabasestackdevA1758F65.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/44f731d38559ea10840f703342842a1d8d200905790677d682555e15ab066ad8.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "dspdrminfrastackdevtbndspdrmdatabasestackdevA1758F65.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "dspdrminfrastackdevtbndspdrmstackdevF2718268",
+        "dspdrminfrastackdevtbndspdrmdatabasestackdevA1758F65.assets"
+      ],
+      "metadata": {
+        "/dsp-drm-infra-stack-dev/tbn-dsp-drm-databasestack-dev/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-dsp-drm-databasestack-dev/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-dsp-drm-databasestack-dev/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-dsp-drm-databasestack-dev/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "dsp-drm-infra-stack-dev/tbn-dsp-drm-databasestack-dev"
+    },
+    "dspdrminfrastackdevtbndspsecretstackdevE1D48833.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "dspdrminfrastackdevtbndspsecretstackdevE1D48833.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "dspdrminfrastackdevtbndspsecretstackdevE1D48833": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "dspdrminfrastackdevtbndspsecretstackdevE1D48833.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/69de08cd67472a807db88d1a184fa9786601e4ae1a0c633ee7abff3fe82cec83.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "dspdrminfrastackdevtbndspsecretstackdevE1D48833.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "dspdrminfrastackdevtbndspsecretstackdevE1D48833.assets"
+      ],
+      "metadata": {
+        "/dsp-drm-infra-stack-dev/tbn-dsp-secretstack-dev/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-dsp-secretstack-dev/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-dsp-secretstack-dev/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-dsp-secretstack-dev/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "dsp-drm-infra-stack-dev/tbn-dsp-secretstack-dev"
+    },
+    "dspdrminfrastackdevtbndspdrmstackdevF2718268.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "dspdrminfrastackdevtbndspdrmstackdevF2718268.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "dspdrminfrastackdevtbndspdrmstackdevF2718268": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "dspdrminfrastackdevtbndspdrmstackdevF2718268.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/7f85d2c6b9ee60bbb2c05e8fb61cee32433bb0fb06f149a03470402d78111082.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "dspdrminfrastackdevtbndspdrmstackdevF2718268.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "dspdrminfrastackdevtbndspdrmstackdevF2718268.assets"
+      ],
+      "metadata": {
+        "/dsp-drm-infra-stack-dev/tbn-dsp-drm-stack-dev/tbn-dsp-drm-playlist-dev-function/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmplaylistdevfunctionServiceRole38DD83DC"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-dsp-drm-stack-dev/tbn-dsp-drm-playlist-dev-function/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmplaylistdevfunction4E1ECDC9"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-dsp-drm-stack-dev/tbn-dsp-drm-media-dev-function/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmmediadevfunctionServiceRole37AEE7D9"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-dsp-drm-stack-dev/tbn-dsp-drm-media-dev-function/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmmediadevfunctionServiceRoleDefaultPolicyBE72F98B"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-dsp-drm-stack-dev/tbn-dsp-drm-media-dev-function/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmmediadevfunction5243D02F"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-dsp-drm-stack-dev/tbn-dsp-drm-appconfig-dev-function/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmappconfigdevfunctionServiceRoleF9F9411F"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-dsp-drm-stack-dev/tbn-dsp-drm-appconfig-dev-function/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmappconfigdevfunctionBBBD1E54"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-dsp-drm-stack-dev/tbn-dsp-drm-search-dev-function/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmsearchdevfunctionServiceRole39269405"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-dsp-drm-stack-dev/tbn-dsp-drm-search-dev-function/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmsearchdevfunctionDB05A6D8"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-dsp-drm-stack-dev/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-dsp-drm-stack-dev/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-dsp-drm-stack-dev/Exports/Output{\"Fn::GetAtt\":[\"tbndspdrmplaylistdevfunction4E1ECDC9\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAtttbndspdrmplaylistdevfunction4E1ECDC9Arn4171A204"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-dsp-drm-stack-dev/Exports/Output{\"Fn::GetAtt\":[\"tbndspdrmsearchdevfunctionDB05A6D8\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAtttbndspdrmsearchdevfunctionDB05A6D8ArnF08220C3"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-dsp-drm-stack-dev/Exports/Output{\"Fn::GetAtt\":[\"tbndspdrmappconfigdevfunctionBBBD1E54\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAtttbndspdrmappconfigdevfunctionBBBD1E54ArnD07CD6F2"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-dsp-drm-stack-dev/Exports/Output{\"Fn::GetAtt\":[\"tbndspdrmmediadevfunction5243D02F\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAtttbndspdrmmediadevfunction5243D02FArn148360C1"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-dsp-drm-stack-dev/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-dsp-drm-stack-dev/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "dsp-drm-infra-stack-dev/tbn-dsp-drm-stack-dev"
+    },
+    "dspdrminfrastackdevtbnapidrmstackdev96A5A1CC.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "dspdrminfrastackdevtbnapidrmstackdev96A5A1CC.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "dspdrminfrastackdevtbnapidrmstackdev96A5A1CC": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "dspdrminfrastackdevtbnapidrmstackdev96A5A1CC.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/09ab67207fb2b44148fa2ebe6107c10a2c1677d86a8fc047f20d6aaf5228d900.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "dspdrminfrastackdevtbnapidrmstackdev96A5A1CC.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "dspdrminfrastackdevtbndspdrmstackdevF2718268",
+        "dspdrminfrastackdevtbnapidrmstackdev96A5A1CC.assets"
+      ],
+      "metadata": {
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapiDCA8E84F"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapiDeployment21F59DDD693434916cfa7b7952ec5feb9be13157"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapiDeploymentStageprodE8EC4801"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapiEndpointED52FE8B"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Default/playlist/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapiplaylistB68F8532"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Default/playlist/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapiplaylistOPTIONS70F2C056"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Default/playlist/GET/ApiPermission.dspdrminfrastackdevtbnapidrmstackdevtbnadinjectordrmdevapi8415334D.GET..playlist": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapiplaylistGETApiPermissiondspdrminfrastackdevtbnapidrmstackdevtbnadinjectordrmdevapi8415334DGETplaylist9571C6AF"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Default/playlist/GET/ApiPermission.Test.dspdrminfrastackdevtbnapidrmstackdevtbnadinjectordrmdevapi8415334D.GET..playlist": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapiplaylistGETApiPermissionTestdspdrminfrastackdevtbnapidrmstackdevtbnadinjectordrmdevapi8415334DGETplaylist7883D292"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Default/playlist/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapiplaylistGET2FFA832F"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Default/search/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapisearch83653205"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Default/search/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapisearchOPTIONS7839A664"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Default/search/GET/ApiPermission.dspdrminfrastackdevtbnapidrmstackdevtbnadinjectordrmdevapi8415334D.GET..search": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapisearchGETApiPermissiondspdrminfrastackdevtbnapidrmstackdevtbnadinjectordrmdevapi8415334DGETsearch64C49BB4"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Default/search/GET/ApiPermission.Test.dspdrminfrastackdevtbnapidrmstackdevtbnadinjectordrmdevapi8415334D.GET..search": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapisearchGETApiPermissionTestdspdrminfrastackdevtbnapidrmstackdevtbnadinjectordrmdevapi8415334DGETsearch6C5FE8AC"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Default/search/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapisearchGET64075BD3"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Default/appconfig/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapiappconfig10B5BEB9"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Default/appconfig/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapiappconfigOPTIONS9150EBDF"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Default/appconfig/GET/ApiPermission.dspdrminfrastackdevtbnapidrmstackdevtbnadinjectordrmdevapi8415334D.GET..appconfig": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapiappconfigGETApiPermissiondspdrminfrastackdevtbnapidrmstackdevtbnadinjectordrmdevapi8415334DGETappconfig8E873EE0"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Default/appconfig/GET/ApiPermission.Test.dspdrminfrastackdevtbnapidrmstackdevtbnadinjectordrmdevapi8415334D.GET..appconfig": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapiappconfigGETApiPermissionTestdspdrminfrastackdevtbnapidrmstackdevtbnadinjectordrmdevapi8415334DGETappconfigE305CF7F"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Default/appconfig/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapiappconfigGETFAF5EB64"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Default/media/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapimedia524AD173"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Default/media/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapimediaOPTIONS2DB11DA7"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Default/media/GET/ApiPermission.dspdrminfrastackdevtbnapidrmstackdevtbnadinjectordrmdevapi8415334D.GET..media": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapimediaGETApiPermissiondspdrminfrastackdevtbnapidrmstackdevtbnadinjectordrmdevapi8415334DGETmedia72A45A48"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Default/media/GET/ApiPermission.Test.dspdrminfrastackdevtbnapidrmstackdevtbnadinjectordrmdevapi8415334D.GET..media": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapimediaGETApiPermissionTestdspdrminfrastackdevtbnapidrmstackdevtbnadinjectordrmdevapi8415334DGETmediaE815DD62"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/tbn-adinjector-drm-dev-api/Default/media/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmdevapimediaGETC292A98F"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/playlist-params-validator/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "playlistparamsvalidator16CAB9ED"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "dsp-drm-infra-stack-dev/tbn-api-drm-stack-dev"
+    },
+    "dsp-drm-infra-stack-dev.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "dsp-drm-infra-stack-dev.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "dsp-drm-infra-stack-dev": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://690231661505/us-west-2",
+      "properties": {
+        "templateFile": "dsp-drm-infra-stack-dev.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::690231661505:role/cdk-hnb659fds-deploy-role-690231661505-us-west-2",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::690231661505:role/cdk-hnb659fds-cfn-exec-role-690231661505-us-west-2",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-690231661505-us-west-2/486de4f33ae666d8b72bf7a15660f4df23f43aadb5b0655b4c47f003f80bc992.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "dsp-drm-infra-stack-dev.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::690231661505:role/cdk-hnb659fds-lookup-role-690231661505-us-west-2",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "dsp-drm-infra-stack-dev.assets"
+      ],
+      "metadata": {
+        "/dsp-drm-infra-stack-dev/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/dsp-drm-infra-stack-dev/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "dsp-drm-infra-stack-dev"
+    },
+    "dspdrminfrastackstgtbndspdrmdatabasestackstgBEDD1675.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "dspdrminfrastackstgtbndspdrmdatabasestackstgBEDD1675.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "dspdrminfrastackstgtbndspdrmdatabasestackstgBEDD1675": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "dspdrminfrastackstgtbndspdrmdatabasestackstgBEDD1675.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/7f3923833fac44b20c5099e7682cd3775d635cb153a47f4d913134aa2492b4ba.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "dspdrminfrastackstgtbndspdrmdatabasestackstgBEDD1675.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "dspdrminfrastackstgtbndspdrmstackstg20188CC9",
+        "dspdrminfrastackstgtbndspdrmdatabasestackstgBEDD1675.assets"
+      ],
+      "metadata": {
+        "/dsp-drm-infra-stack-stg/tbn-dsp-drm-databasestack-stg/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-dsp-drm-databasestack-stg/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-dsp-drm-databasestack-stg/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-dsp-drm-databasestack-stg/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "dsp-drm-infra-stack-stg/tbn-dsp-drm-databasestack-stg"
+    },
+    "dspdrminfrastackstgtbndspsecretstackstg1C041B81.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "dspdrminfrastackstgtbndspsecretstackstg1C041B81.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "dspdrminfrastackstgtbndspsecretstackstg1C041B81": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "dspdrminfrastackstgtbndspsecretstackstg1C041B81.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/44acc33c988cf6ec6214ec06eb5675b5eed39a1669cb0d4f2d99100a3e3f0e40.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "dspdrminfrastackstgtbndspsecretstackstg1C041B81.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "dspdrminfrastackstgtbndspsecretstackstg1C041B81.assets"
+      ],
+      "metadata": {
+        "/dsp-drm-infra-stack-stg/tbn-dsp-secretstack-stg/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-dsp-secretstack-stg/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-dsp-secretstack-stg/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-dsp-secretstack-stg/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "dsp-drm-infra-stack-stg/tbn-dsp-secretstack-stg"
+    },
+    "dspdrminfrastackstgtbndspdrmstackstg20188CC9.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "dspdrminfrastackstgtbndspdrmstackstg20188CC9.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "dspdrminfrastackstgtbndspdrmstackstg20188CC9": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "dspdrminfrastackstgtbndspdrmstackstg20188CC9.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/9adbd51e2f9691f98425be5269942305ca847a991e371d7dc7538d201d454c37.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "dspdrminfrastackstgtbndspdrmstackstg20188CC9.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "dspdrminfrastackstgtbndspdrmstackstg20188CC9.assets"
+      ],
+      "metadata": {
+        "/dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/tbn-dsp-drm-playlist-stg-function/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmplayliststgfunctionServiceRoleE3279489"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/tbn-dsp-drm-playlist-stg-function/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmplayliststgfunctionA597DEF3"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/tbn-dsp-drm-media-stg-function/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmmediastgfunctionServiceRole276915CD"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/tbn-dsp-drm-media-stg-function/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmmediastgfunctionServiceRoleDefaultPolicy58834F0E"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/tbn-dsp-drm-media-stg-function/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmmediastgfunction8D54501D"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/tbn-dsp-drm-appconfig-stg-function/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmappconfigstgfunctionServiceRole7BC1946E"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/tbn-dsp-drm-appconfig-stg-function/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmappconfigstgfunctionACFC7849"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/tbn-dsp-drm-search-stg-function/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmsearchstgfunctionServiceRoleAC9CCDAE"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/tbn-dsp-drm-search-stg-function/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmsearchstgfunction51E3DE3E"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/Exports/Output{\"Fn::GetAtt\":[\"tbndspdrmplayliststgfunctionA597DEF3\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAtttbndspdrmplayliststgfunctionA597DEF3ArnD2AB38D7"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/Exports/Output{\"Fn::GetAtt\":[\"tbndspdrmsearchstgfunction51E3DE3E\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAtttbndspdrmsearchstgfunction51E3DE3EArn499D80B4"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/Exports/Output{\"Fn::GetAtt\":[\"tbndspdrmappconfigstgfunctionACFC7849\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAtttbndspdrmappconfigstgfunctionACFC7849Arn0E0DF5FF"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/Exports/Output{\"Fn::GetAtt\":[\"tbndspdrmmediastgfunction8D54501D\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAtttbndspdrmmediastgfunction8D54501DArnB756C6F2"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "dsp-drm-infra-stack-stg/tbn-dsp-drm-stack-stg"
+    },
+    "dspdrminfrastackstgtbnapidrmstackstgC136F4EA.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "dspdrminfrastackstgtbnapidrmstackstgC136F4EA.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "dspdrminfrastackstgtbnapidrmstackstgC136F4EA": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "dspdrminfrastackstgtbnapidrmstackstgC136F4EA.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/5cb938372766e88359499e125ce4b5a0433ce9c058748b3ecf34c726e681a111.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "dspdrminfrastackstgtbnapidrmstackstgC136F4EA.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "dspdrminfrastackstgtbndspdrmstackstg20188CC9",
+        "dspdrminfrastackstgtbnapidrmstackstgC136F4EA.assets"
+      ],
+      "metadata": {
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapiFF735B71"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapiDeploymentE7EFB7FCaf66e9662a5848235a179ace5c7a13c4"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapiDeploymentStageprodB7008EFC"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapiEndpoint3A197BBC"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Default/playlist/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapiplaylistA33D511B"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Default/playlist/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapiplaylistOPTIONSA18D8602"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Default/playlist/GET/ApiPermission.dspdrminfrastackstgtbnapidrmstackstgtbnadinjectordrmstgapi08C241D4.GET..playlist": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapiplaylistGETApiPermissiondspdrminfrastackstgtbnapidrmstackstgtbnadinjectordrmstgapi08C241D4GETplaylist2574B10D"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Default/playlist/GET/ApiPermission.Test.dspdrminfrastackstgtbnapidrmstackstgtbnadinjectordrmstgapi08C241D4.GET..playlist": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapiplaylistGETApiPermissionTestdspdrminfrastackstgtbnapidrmstackstgtbnadinjectordrmstgapi08C241D4GETplaylistA14D06CD"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Default/playlist/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapiplaylistGET0603E9BC"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Default/search/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapisearch47FFD283"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Default/search/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapisearchOPTIONSE5A8B40A"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Default/search/GET/ApiPermission.dspdrminfrastackstgtbnapidrmstackstgtbnadinjectordrmstgapi08C241D4.GET..search": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapisearchGETApiPermissiondspdrminfrastackstgtbnapidrmstackstgtbnadinjectordrmstgapi08C241D4GETsearchD2965A65"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Default/search/GET/ApiPermission.Test.dspdrminfrastackstgtbnapidrmstackstgtbnadinjectordrmstgapi08C241D4.GET..search": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapisearchGETApiPermissionTestdspdrminfrastackstgtbnapidrmstackstgtbnadinjectordrmstgapi08C241D4GETsearch45533AD1"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Default/search/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapisearchGET7DAA1C64"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Default/appconfig/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapiappconfig52CD3B24"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Default/appconfig/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapiappconfigOPTIONSC2F5D05B"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Default/appconfig/GET/ApiPermission.dspdrminfrastackstgtbnapidrmstackstgtbnadinjectordrmstgapi08C241D4.GET..appconfig": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapiappconfigGETApiPermissiondspdrminfrastackstgtbnapidrmstackstgtbnadinjectordrmstgapi08C241D4GETappconfig04057A6C"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Default/appconfig/GET/ApiPermission.Test.dspdrminfrastackstgtbnapidrmstackstgtbnadinjectordrmstgapi08C241D4.GET..appconfig": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapiappconfigGETApiPermissionTestdspdrminfrastackstgtbnapidrmstackstgtbnadinjectordrmstgapi08C241D4GETappconfigEDFE76DD"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Default/appconfig/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapiappconfigGETB9BCD0E1"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Default/media/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapimedia069FA717"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Default/media/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapimediaOPTIONSE7BFD2B1"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Default/media/GET/ApiPermission.dspdrminfrastackstgtbnapidrmstackstgtbnadinjectordrmstgapi08C241D4.GET..media": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapimediaGETApiPermissiondspdrminfrastackstgtbnapidrmstackstgtbnadinjectordrmstgapi08C241D4GETmedia8225A53A"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Default/media/GET/ApiPermission.Test.dspdrminfrastackstgtbnapidrmstackstgtbnadinjectordrmstgapi08C241D4.GET..media": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapimediaGETApiPermissionTestdspdrminfrastackstgtbnapidrmstackstgtbnadinjectordrmstgapi08C241D4GETmedia7CD25B31"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/tbn-adinjector-drm-stg-api/Default/media/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmstgapimediaGET79CF4B65"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/playlist-params-validator/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "playlistparamsvalidator16CAB9ED"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "dsp-drm-infra-stack-stg/tbn-api-drm-stack-stg"
+    },
+    "dsp-drm-infra-stack-stg.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "dsp-drm-infra-stack-stg.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "dsp-drm-infra-stack-stg": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://690231661505/us-west-2",
+      "properties": {
+        "templateFile": "dsp-drm-infra-stack-stg.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::690231661505:role/cdk-hnb659fds-deploy-role-690231661505-us-west-2",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::690231661505:role/cdk-hnb659fds-cfn-exec-role-690231661505-us-west-2",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-690231661505-us-west-2/fd6139c9d7cea19cf8f46053edb263466885755a46125453e3b99e06e07b4336.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "dsp-drm-infra-stack-stg.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::690231661505:role/cdk-hnb659fds-lookup-role-690231661505-us-west-2",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "dsp-drm-infra-stack-stg.assets"
+      ],
+      "metadata": {
+        "/dsp-drm-infra-stack-stg/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/dsp-drm-infra-stack-stg/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "dsp-drm-infra-stack-stg"
+    },
+    "dspdrminfrastackprodtbndspdrmdatabasestackprodDCE7F056.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "dspdrminfrastackprodtbndspdrmdatabasestackprodDCE7F056.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "dspdrminfrastackprodtbndspdrmdatabasestackprodDCE7F056": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "dspdrminfrastackprodtbndspdrmdatabasestackprodDCE7F056.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/73092d4bb2d40b407ef6c087c1018c06abfb1c34565fde4d33c6c0f33b3a3489.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "dspdrminfrastackprodtbndspdrmdatabasestackprodDCE7F056.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "dspdrminfrastackprodtbndspdrmstackprodEAD063D5",
+        "dspdrminfrastackprodtbndspdrmdatabasestackprodDCE7F056.assets"
+      ],
+      "metadata": {
+        "/dsp-drm-infra-stack-prod/tbn-dsp-drm-databasestack-prod/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-dsp-drm-databasestack-prod/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-dsp-drm-databasestack-prod/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-dsp-drm-databasestack-prod/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "dsp-drm-infra-stack-prod/tbn-dsp-drm-databasestack-prod"
+    },
+    "dspdrminfrastackprodtbndspsecretstackprodA823E5DA.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "dspdrminfrastackprodtbndspsecretstackprodA823E5DA.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "dspdrminfrastackprodtbndspsecretstackprodA823E5DA": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "dspdrminfrastackprodtbndspsecretstackprodA823E5DA.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/bad4bccb620c0495287c51c2a1ae35d4980cdebfef22262f18e65b27c86cd9f5.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "dspdrminfrastackprodtbndspsecretstackprodA823E5DA.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "dspdrminfrastackprodtbndspsecretstackprodA823E5DA.assets"
+      ],
+      "metadata": {
+        "/dsp-drm-infra-stack-prod/tbn-dsp-secretstack-prod/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-dsp-secretstack-prod/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-dsp-secretstack-prod/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-dsp-secretstack-prod/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "dsp-drm-infra-stack-prod/tbn-dsp-secretstack-prod"
+    },
+    "dspdrminfrastackprodtbndspdrmstackprodEAD063D5.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "dspdrminfrastackprodtbndspdrmstackprodEAD063D5.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "dspdrminfrastackprodtbndspdrmstackprodEAD063D5": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "dspdrminfrastackprodtbndspdrmstackprodEAD063D5.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/bb17660c6d6032c520647504a4397e3d0368a3f604c38874e136cdff5afc6b3e.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "dspdrminfrastackprodtbndspdrmstackprodEAD063D5.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "dspdrminfrastackprodtbndspdrmstackprodEAD063D5.assets"
+      ],
+      "metadata": {
+        "/dsp-drm-infra-stack-prod/tbn-dsp-drm-stack-prod/tbn-dsp-drm-playlist-prod-function/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmplaylistprodfunctionServiceRole69ACD828"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-dsp-drm-stack-prod/tbn-dsp-drm-playlist-prod-function/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmplaylistprodfunction533CF75B"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-dsp-drm-stack-prod/tbn-dsp-drm-media-prod-function/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmmediaprodfunctionServiceRole8975F007"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-dsp-drm-stack-prod/tbn-dsp-drm-media-prod-function/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmmediaprodfunctionServiceRoleDefaultPolicy11F4E8DA"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-dsp-drm-stack-prod/tbn-dsp-drm-media-prod-function/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmmediaprodfunction831DFBAB"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-dsp-drm-stack-prod/tbn-dsp-drm-appconfig-prod-function/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmappconfigprodfunctionServiceRoleB582C158"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-dsp-drm-stack-prod/tbn-dsp-drm-appconfig-prod-function/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmappconfigprodfunctionF7C4E283"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-dsp-drm-stack-prod/tbn-dsp-drm-search-prod-function/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmsearchprodfunctionServiceRole441638D5"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-dsp-drm-stack-prod/tbn-dsp-drm-search-prod-function/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbndspdrmsearchprodfunction1E97EDE0"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-dsp-drm-stack-prod/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-dsp-drm-stack-prod/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-dsp-drm-stack-prod/Exports/Output{\"Fn::GetAtt\":[\"tbndspdrmplaylistprodfunction533CF75B\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAtttbndspdrmplaylistprodfunction533CF75BArn87941BA0"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-dsp-drm-stack-prod/Exports/Output{\"Fn::GetAtt\":[\"tbndspdrmsearchprodfunction1E97EDE0\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAtttbndspdrmsearchprodfunction1E97EDE0Arn309722EE"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-dsp-drm-stack-prod/Exports/Output{\"Fn::GetAtt\":[\"tbndspdrmappconfigprodfunctionF7C4E283\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAtttbndspdrmappconfigprodfunctionF7C4E283Arn4D89BDC4"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-dsp-drm-stack-prod/Exports/Output{\"Fn::GetAtt\":[\"tbndspdrmmediaprodfunction831DFBAB\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAtttbndspdrmmediaprodfunction831DFBABArn027B6D9A"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-dsp-drm-stack-prod/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-dsp-drm-stack-prod/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "dsp-drm-infra-stack-prod/tbn-dsp-drm-stack-prod"
+    },
+    "dspdrminfrastackprodtbnapidrmstackprodE734C344.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "dspdrminfrastackprodtbnapidrmstackprodE734C344.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "dspdrminfrastackprodtbnapidrmstackprodE734C344": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "dspdrminfrastackprodtbnapidrmstackprodE734C344.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/d9090cc1f091f878c724a84b02d2688e0a500ceb7590798d22effaac182595ee.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "dspdrminfrastackprodtbnapidrmstackprodE734C344.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "dspdrminfrastackprodtbndspdrmstackprodEAD063D5",
+        "dspdrminfrastackprodtbnapidrmstackprodE734C344.assets"
+      ],
+      "metadata": {
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapi3BD893E0"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapiDeployment4A29D786a3de429ef2b35dde4f724209d6377586"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapiDeploymentStageprodAF75377A"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapiEndpointDDBD0343"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/playlist/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapiplaylist3AD96257"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/playlist/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapiplaylistOPTIONSE61232DA"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/playlist/GET/ApiPermission.dspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8.GET..playlist": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapiplaylistGETApiPermissiondspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8GETplaylist620947F9"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/playlist/GET/ApiPermission.Test.dspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8.GET..playlist": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapiplaylistGETApiPermissionTestdspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8GETplaylist591C32B3"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/playlist/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapiplaylistGET52E77B08"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/search/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapisearch5353510D"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/search/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapisearchOPTIONS6F4BCCC8"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/search/GET/ApiPermission.dspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8.GET..search": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapisearchGETApiPermissiondspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8GETsearch898B4A85"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/search/GET/ApiPermission.Test.dspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8.GET..search": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapisearchGETApiPermissionTestdspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8GETsearchE0990279"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/search/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapisearchGET7EC9E49C"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/appconfig/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapiappconfigEA42E1C9"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/appconfig/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapiappconfigOPTIONS2E40561A"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/appconfig/GET/ApiPermission.dspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8.GET..appconfig": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapiappconfigGETApiPermissiondspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8GETappconfig50B7BD04"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/appconfig/GET/ApiPermission.Test.dspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8.GET..appconfig": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapiappconfigGETApiPermissionTestdspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8GETappconfig5C21E91A"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/appconfig/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapiappconfigGETAF212E92"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/media/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapimedia3AC58591"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/media/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapimediaOPTIONSEE644F1D"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/media/GET/ApiPermission.dspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8.GET..media": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapimediaGETApiPermissiondspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8GETmedia774B76C9"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/media/GET/ApiPermission.Test.dspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8.GET..media": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapimediaGETApiPermissionTestdspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8GETmedia5907DE74"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/media/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tbnadinjectordrmprodapimediaGET9E6C09F4"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/playlist-params-validator/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "playlistparamsvalidator16CAB9ED"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod"
+    },
+    "dsp-drm-infra-stack-prod.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "dsp-drm-infra-stack-prod.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "dsp-drm-infra-stack-prod": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://690231661505/us-west-2",
+      "properties": {
+        "templateFile": "dsp-drm-infra-stack-prod.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::690231661505:role/cdk-hnb659fds-deploy-role-690231661505-us-west-2",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::690231661505:role/cdk-hnb659fds-cfn-exec-role-690231661505-us-west-2",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-690231661505-us-west-2/8ad74595601905578dcc1233173242826276920ecb6ed7f09bb023ce8d2b0c37.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "dsp-drm-infra-stack-prod.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::690231661505:role/cdk-hnb659fds-lookup-role-690231661505-us-west-2",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "dsp-drm-infra-stack-prod.assets"
+      ],
+      "metadata": {
+        "/dsp-drm-infra-stack-prod/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/dsp-drm-infra-stack-prod/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "dsp-drm-infra-stack-prod"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}

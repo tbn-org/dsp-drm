@@ -1,0 +1,20 @@
+{
+  "version": "34.0.0",
+  "files": {
+    "8ad74595601905578dcc1233173242826276920ecb6ed7f09bb023ce8d2b0c37": {
+      "source": {
+        "path": "dsp-drm-infra-stack-prod.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "690231661505-us-west-2": {
+          "bucketName": "cdk-hnb659fds-assets-690231661505-us-west-2",
+          "objectKey": "8ad74595601905578dcc1233173242826276920ecb6ed7f09bb023ce8d2b0c37.json",
+          "region": "us-west-2",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::690231661505:role/cdk-hnb659fds-file-publishing-role-690231661505-us-west-2"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

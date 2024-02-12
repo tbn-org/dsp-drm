@@ -1,0 +1,19 @@
+{
+  "version": "34.0.0",
+  "files": {
+    "7f3923833fac44b20c5099e7682cd3775d635cb153a47f4d913134aa2492b4ba": {
+      "source": {
+        "path": "dspdrminfrastackstgtbndspdrmdatabasestackstgBEDD1675.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "7f3923833fac44b20c5099e7682cd3775d635cb153a47f4d913134aa2492b4ba.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

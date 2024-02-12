@@ -1,0 +1,1183 @@
+{
+ "Resources": {
+  "tbnadinjectordrmprodapi3BD893E0": {
+   "Type": "AWS::ApiGateway::RestApi",
+   "Properties": {
+    "EndpointConfiguration": {
+     "Types": [
+      "EDGE"
+     ]
+    },
+    "Name": "tbn-dsp-drm-prod-api"
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Resource"
+   }
+  },
+  "tbnadinjectordrmprodapiDeployment4A29D786a3de429ef2b35dde4f724209d6377586": {
+   "Type": "AWS::ApiGateway::Deployment",
+   "Properties": {
+    "Description": "Automatically created by the RestApi construct",
+    "RestApiId": {
+     "Ref": "tbnadinjectordrmprodapi3BD893E0"
+    }
+   },
+   "DependsOn": [
+    "playlistparamsvalidator16CAB9ED",
+    "tbnadinjectordrmprodapiappconfigGETAF212E92",
+    "tbnadinjectordrmprodapiappconfigOPTIONS2E40561A",
+    "tbnadinjectordrmprodapiappconfigEA42E1C9",
+    "tbnadinjectordrmprodapimediaGET9E6C09F4",
+    "tbnadinjectordrmprodapimediaOPTIONSEE644F1D",
+    "tbnadinjectordrmprodapimedia3AC58591",
+    "tbnadinjectordrmprodapiplaylistGET52E77B08",
+    "tbnadinjectordrmprodapiplaylistOPTIONSE61232DA",
+    "tbnadinjectordrmprodapiplaylist3AD96257",
+    "tbnadinjectordrmprodapisearchGET7EC9E49C",
+    "tbnadinjectordrmprodapisearchOPTIONS6F4BCCC8",
+    "tbnadinjectordrmprodapisearch5353510D"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Deployment/Resource"
+   }
+  },
+  "tbnadinjectordrmprodapiDeploymentStageprodAF75377A": {
+   "Type": "AWS::ApiGateway::Stage",
+   "Properties": {
+    "CacheClusterEnabled": true,
+    "CacheClusterSize": "0.5",
+    "DeploymentId": {
+     "Ref": "tbnadinjectordrmprodapiDeployment4A29D786a3de429ef2b35dde4f724209d6377586"
+    },
+    "MethodSettings": [
+     {
+      "CacheTtlInSeconds": 1800,
+      "CachingEnabled": true,
+      "DataTraceEnabled": false,
+      "HttpMethod": "*",
+      "LoggingLevel": "INFO",
+      "MetricsEnabled": true,
+      "ResourcePath": "/*"
+     },
+     {
+      "CachingEnabled": false,
+      "DataTraceEnabled": false,
+      "HttpMethod": "GET",
+      "MetricsEnabled": true,
+      "ResourcePath": "/~1media"
+     }
+    ],
+    "RestApiId": {
+     "Ref": "tbnadinjectordrmprodapi3BD893E0"
+    },
+    "StageName": "prod",
+    "TracingEnabled": true
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/DeploymentStage.prod/Resource"
+   }
+  },
+  "tbnadinjectordrmprodapiplaylist3AD96257": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Fn::GetAtt": [
+      "tbnadinjectordrmprodapi3BD893E0",
+      "RootResourceId"
+     ]
+    },
+    "PathPart": "playlist",
+    "RestApiId": {
+     "Ref": "tbnadinjectordrmprodapi3BD893E0"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/playlist/Resource"
+   }
+  },
+  "tbnadinjectordrmprodapiplaylistOPTIONSE61232DA": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "AuthorizationType": "NONE",
+    "HttpMethod": "OPTIONS",
+    "Integration": {
+     "IntegrationResponses": [
+      {
+       "ResponseParameters": {
+        "method.response.header.Access-Control-Allow-Headers": "'*'",
+        "method.response.header.Access-Control-Allow-Origin": "'*'",
+        "method.response.header.Access-Control-Allow-Credentials": "'false'",
+        "method.response.header.Access-Control-Allow-Methods": "'*'"
+       },
+       "StatusCode": "200"
+      }
+     ],
+     "PassthroughBehavior": "NEVER",
+     "RequestTemplates": {
+      "application/json": "{\"statusCode\": 200}"
+     },
+     "Type": "MOCK"
+    },
+    "MethodResponses": [
+     {
+      "ResponseParameters": {
+       "method.response.header.Access-Control-Allow-Headers": true,
+       "method.response.header.Access-Control-Allow-Methods": true,
+       "method.response.header.Access-Control-Allow-Credentials": true,
+       "method.response.header.Access-Control-Allow-Origin": true
+      },
+      "StatusCode": "200"
+     }
+    ],
+    "RequestParameters": {
+     "method.request.querystring.playlistid": true,
+     "method.request.querystring.page_limit": true,
+     "method.request.querystring.page_offset": true,
+     "method.request.querystring.related_media_id": false,
+     "method.request.querystring.feed_title": false,
+     "method.request.querystring.media_filtering": false,
+     "method.request.querystring.override_type": false,
+     "method.request.querystring.override_feedtype": false,
+     "method.request.header.CloudFront-Viewer-Country": false
+    },
+    "ResourceId": {
+     "Ref": "tbnadinjectordrmprodapiplaylist3AD96257"
+    },
+    "RestApiId": {
+     "Ref": "tbnadinjectordrmprodapi3BD893E0"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/playlist/OPTIONS/Resource"
+   }
+  },
+  "tbnadinjectordrmprodapiplaylistGETApiPermissiondspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8GETplaylist620947F9": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::ImportValue": "dspdrminfrastackprodtbndspdrmstackprodEAD063D5:ExportsOutputFnGetAtttbndspdrmplaylistprodfunction533CF75BArn87941BA0"
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:",
+       {
+        "Ref": "AWS::Region"
+       },
+       ":",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "tbnadinjectordrmprodapi3BD893E0"
+       },
+       "/",
+       {
+        "Ref": "tbnadinjectordrmprodapiDeploymentStageprodAF75377A"
+       },
+       "/GET/playlist"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/playlist/GET/ApiPermission.dspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8.GET..playlist"
+   }
+  },
+  "tbnadinjectordrmprodapiplaylistGETApiPermissionTestdspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8GETplaylist591C32B3": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::ImportValue": "dspdrminfrastackprodtbndspdrmstackprodEAD063D5:ExportsOutputFnGetAtttbndspdrmplaylistprodfunction533CF75BArn87941BA0"
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:",
+       {
+        "Ref": "AWS::Region"
+       },
+       ":",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "tbnadinjectordrmprodapi3BD893E0"
+       },
+       "/test-invoke-stage/GET/playlist"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/playlist/GET/ApiPermission.Test.dspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8.GET..playlist"
+   }
+  },
+  "tbnadinjectordrmprodapiplaylistGET52E77B08": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "AuthorizationType": "NONE",
+    "HttpMethod": "GET",
+    "Integration": {
+     "CacheKeyParameters": [
+      "method.request.querystring.playlistid",
+      "method.request.querystring.page_limit",
+      "method.request.querystring.page_offset",
+      "method.request.querystring.feed_title",
+      "method.request.querystring.override_type",
+      "method.request.querystring.override_feedtype",
+      "method.request.querystring.media_filtering",
+      "method.request.querystring.related_media_id",
+      "method.request.header.CloudFront-Viewer-Country"
+     ],
+     "IntegrationHttpMethod": "POST",
+     "Type": "AWS_PROXY",
+     "Uri": {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":apigateway:",
+        {
+         "Ref": "AWS::Region"
+        },
+        ":lambda:path/2015-03-31/functions/",
+        {
+         "Fn::ImportValue": "dspdrminfrastackprodtbndspdrmstackprodEAD063D5:ExportsOutputFnGetAtttbndspdrmplaylistprodfunction533CF75BArn87941BA0"
+        },
+        "/invocations"
+       ]
+      ]
+     }
+    },
+    "RequestParameters": {
+     "method.request.querystring.playlistid": true,
+     "method.request.querystring.page_limit": true,
+     "method.request.querystring.page_offset": true,
+     "method.request.querystring.related_media_id": false,
+     "method.request.querystring.feed_title": false,
+     "method.request.querystring.media_filtering": false,
+     "method.request.querystring.override_type": false,
+     "method.request.querystring.override_feedtype": false,
+     "method.request.header.CloudFront-Viewer-Country": false
+    },
+    "RequestValidatorId": {
+     "Ref": "playlistparamsvalidator16CAB9ED"
+    },
+    "ResourceId": {
+     "Ref": "tbnadinjectordrmprodapiplaylist3AD96257"
+    },
+    "RestApiId": {
+     "Ref": "tbnadinjectordrmprodapi3BD893E0"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/playlist/GET/Resource"
+   }
+  },
+  "tbnadinjectordrmprodapisearch5353510D": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Fn::GetAtt": [
+      "tbnadinjectordrmprodapi3BD893E0",
+      "RootResourceId"
+     ]
+    },
+    "PathPart": "search",
+    "RestApiId": {
+     "Ref": "tbnadinjectordrmprodapi3BD893E0"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/search/Resource"
+   }
+  },
+  "tbnadinjectordrmprodapisearchOPTIONS6F4BCCC8": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "AuthorizationType": "NONE",
+    "HttpMethod": "OPTIONS",
+    "Integration": {
+     "IntegrationResponses": [
+      {
+       "ResponseParameters": {
+        "method.response.header.Access-Control-Allow-Headers": "'*'",
+        "method.response.header.Access-Control-Allow-Origin": "'*'",
+        "method.response.header.Access-Control-Allow-Credentials": "'false'",
+        "method.response.header.Access-Control-Allow-Methods": "'*'"
+       },
+       "StatusCode": "200"
+      }
+     ],
+     "PassthroughBehavior": "NEVER",
+     "RequestTemplates": {
+      "application/json": "{\"statusCode\": 200}"
+     },
+     "Type": "MOCK"
+    },
+    "MethodResponses": [
+     {
+      "ResponseParameters": {
+       "method.response.header.Access-Control-Allow-Headers": true,
+       "method.response.header.Access-Control-Allow-Methods": true,
+       "method.response.header.Access-Control-Allow-Credentials": true,
+       "method.response.header.Access-Control-Allow-Origin": true
+      },
+      "StatusCode": "200"
+     }
+    ],
+    "RequestParameters": {
+     "method.request.querystring.playlistid": true,
+     "method.request.querystring.page_limit": true,
+     "method.request.querystring.page_offset": true,
+     "method.request.querystring.search": true,
+     "method.request.querystring.feed_title": false,
+     "method.request.header.CloudFront-Viewer-Country": false
+    },
+    "ResourceId": {
+     "Ref": "tbnadinjectordrmprodapisearch5353510D"
+    },
+    "RestApiId": {
+     "Ref": "tbnadinjectordrmprodapi3BD893E0"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/search/OPTIONS/Resource"
+   }
+  },
+  "tbnadinjectordrmprodapisearchGETApiPermissiondspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8GETsearch898B4A85": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::ImportValue": "dspdrminfrastackprodtbndspdrmstackprodEAD063D5:ExportsOutputFnGetAtttbndspdrmsearchprodfunction1E97EDE0Arn309722EE"
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:",
+       {
+        "Ref": "AWS::Region"
+       },
+       ":",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "tbnadinjectordrmprodapi3BD893E0"
+       },
+       "/",
+       {
+        "Ref": "tbnadinjectordrmprodapiDeploymentStageprodAF75377A"
+       },
+       "/GET/search"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/search/GET/ApiPermission.dspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8.GET..search"
+   }
+  },
+  "tbnadinjectordrmprodapisearchGETApiPermissionTestdspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8GETsearchE0990279": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::ImportValue": "dspdrminfrastackprodtbndspdrmstackprodEAD063D5:ExportsOutputFnGetAtttbndspdrmsearchprodfunction1E97EDE0Arn309722EE"
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:",
+       {
+        "Ref": "AWS::Region"
+       },
+       ":",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "tbnadinjectordrmprodapi3BD893E0"
+       },
+       "/test-invoke-stage/GET/search"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/search/GET/ApiPermission.Test.dspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8.GET..search"
+   }
+  },
+  "tbnadinjectordrmprodapisearchGET7EC9E49C": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "AuthorizationType": "NONE",
+    "HttpMethod": "GET",
+    "Integration": {
+     "CacheKeyParameters": [
+      "method.request.querystring.playlistid",
+      "method.request.querystring.page_limit",
+      "method.request.querystring.page_offset",
+      "method.request.querystring.search",
+      "method.request.querystring.feed_title",
+      "method.request.header.CloudFront-Viewer-Country"
+     ],
+     "IntegrationHttpMethod": "POST",
+     "Type": "AWS_PROXY",
+     "Uri": {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":apigateway:",
+        {
+         "Ref": "AWS::Region"
+        },
+        ":lambda:path/2015-03-31/functions/",
+        {
+         "Fn::ImportValue": "dspdrminfrastackprodtbndspdrmstackprodEAD063D5:ExportsOutputFnGetAtttbndspdrmsearchprodfunction1E97EDE0Arn309722EE"
+        },
+        "/invocations"
+       ]
+      ]
+     }
+    },
+    "RequestParameters": {
+     "method.request.querystring.playlistid": true,
+     "method.request.querystring.page_limit": true,
+     "method.request.querystring.page_offset": true,
+     "method.request.querystring.search": true,
+     "method.request.querystring.feed_title": false,
+     "method.request.header.CloudFront-Viewer-Country": false
+    },
+    "RequestValidatorId": {
+     "Ref": "playlistparamsvalidator16CAB9ED"
+    },
+    "ResourceId": {
+     "Ref": "tbnadinjectordrmprodapisearch5353510D"
+    },
+    "RestApiId": {
+     "Ref": "tbnadinjectordrmprodapi3BD893E0"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/search/GET/Resource"
+   }
+  },
+  "tbnadinjectordrmprodapiappconfigEA42E1C9": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Fn::GetAtt": [
+      "tbnadinjectordrmprodapi3BD893E0",
+      "RootResourceId"
+     ]
+    },
+    "PathPart": "appconfig",
+    "RestApiId": {
+     "Ref": "tbnadinjectordrmprodapi3BD893E0"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/appconfig/Resource"
+   }
+  },
+  "tbnadinjectordrmprodapiappconfigOPTIONS2E40561A": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "AuthorizationType": "NONE",
+    "HttpMethod": "OPTIONS",
+    "Integration": {
+     "IntegrationResponses": [
+      {
+       "ResponseParameters": {
+        "method.response.header.Access-Control-Allow-Headers": "'*'",
+        "method.response.header.Access-Control-Allow-Origin": "'*'",
+        "method.response.header.Access-Control-Allow-Credentials": "'false'",
+        "method.response.header.Access-Control-Allow-Methods": "'*'"
+       },
+       "StatusCode": "200"
+      }
+     ],
+     "PassthroughBehavior": "NEVER",
+     "RequestTemplates": {
+      "application/json": "{\"statusCode\": 200}"
+     },
+     "Type": "MOCK"
+    },
+    "MethodResponses": [
+     {
+      "ResponseParameters": {
+       "method.response.header.Access-Control-Allow-Headers": true,
+       "method.response.header.Access-Control-Allow-Methods": true,
+       "method.response.header.Access-Control-Allow-Credentials": true,
+       "method.response.header.Access-Control-Allow-Origin": true
+      },
+      "StatusCode": "200"
+     }
+    ],
+    "RequestParameters": {
+     "method.request.querystring.configid": true,
+     "method.request.querystring.index": true,
+     "method.request.querystring.page_limit": true,
+     "method.request.querystring.page_offset": true,
+     "method.request.querystring.feed_title": false,
+     "method.request.header.CloudFront-Viewer-Country": false
+    },
+    "ResourceId": {
+     "Ref": "tbnadinjectordrmprodapiappconfigEA42E1C9"
+    },
+    "RestApiId": {
+     "Ref": "tbnadinjectordrmprodapi3BD893E0"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/appconfig/OPTIONS/Resource"
+   }
+  },
+  "tbnadinjectordrmprodapiappconfigGETApiPermissiondspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8GETappconfig50B7BD04": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::ImportValue": "dspdrminfrastackprodtbndspdrmstackprodEAD063D5:ExportsOutputFnGetAtttbndspdrmappconfigprodfunctionF7C4E283Arn4D89BDC4"
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:",
+       {
+        "Ref": "AWS::Region"
+       },
+       ":",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "tbnadinjectordrmprodapi3BD893E0"
+       },
+       "/",
+       {
+        "Ref": "tbnadinjectordrmprodapiDeploymentStageprodAF75377A"
+       },
+       "/GET/appconfig"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/appconfig/GET/ApiPermission.dspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8.GET..appconfig"
+   }
+  },
+  "tbnadinjectordrmprodapiappconfigGETApiPermissionTestdspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8GETappconfig5C21E91A": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::ImportValue": "dspdrminfrastackprodtbndspdrmstackprodEAD063D5:ExportsOutputFnGetAtttbndspdrmappconfigprodfunctionF7C4E283Arn4D89BDC4"
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:",
+       {
+        "Ref": "AWS::Region"
+       },
+       ":",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "tbnadinjectordrmprodapi3BD893E0"
+       },
+       "/test-invoke-stage/GET/appconfig"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/appconfig/GET/ApiPermission.Test.dspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8.GET..appconfig"
+   }
+  },
+  "tbnadinjectordrmprodapiappconfigGETAF212E92": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "AuthorizationType": "NONE",
+    "HttpMethod": "GET",
+    "Integration": {
+     "CacheKeyParameters": [
+      "method.request.querystring.configid",
+      "method.request.querystring.index",
+      "method.request.querystring.feed_title",
+      "method.request.querystring.page_limit",
+      "method.request.querystring.page_offset",
+      "method.request.header.CloudFront-Viewer-Country"
+     ],
+     "IntegrationHttpMethod": "POST",
+     "Type": "AWS_PROXY",
+     "Uri": {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":apigateway:",
+        {
+         "Ref": "AWS::Region"
+        },
+        ":lambda:path/2015-03-31/functions/",
+        {
+         "Fn::ImportValue": "dspdrminfrastackprodtbndspdrmstackprodEAD063D5:ExportsOutputFnGetAtttbndspdrmappconfigprodfunctionF7C4E283Arn4D89BDC4"
+        },
+        "/invocations"
+       ]
+      ]
+     }
+    },
+    "RequestParameters": {
+     "method.request.querystring.configid": true,
+     "method.request.querystring.index": true,
+     "method.request.querystring.page_limit": true,
+     "method.request.querystring.page_offset": true,
+     "method.request.querystring.feed_title": false,
+     "method.request.header.CloudFront-Viewer-Country": false
+    },
+    "RequestValidatorId": {
+     "Ref": "playlistparamsvalidator16CAB9ED"
+    },
+    "ResourceId": {
+     "Ref": "tbnadinjectordrmprodapiappconfigEA42E1C9"
+    },
+    "RestApiId": {
+     "Ref": "tbnadinjectordrmprodapi3BD893E0"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/appconfig/GET/Resource"
+   }
+  },
+  "tbnadinjectordrmprodapimedia3AC58591": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Fn::GetAtt": [
+      "tbnadinjectordrmprodapi3BD893E0",
+      "RootResourceId"
+     ]
+    },
+    "PathPart": "media",
+    "RestApiId": {
+     "Ref": "tbnadinjectordrmprodapi3BD893E0"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/media/Resource"
+   }
+  },
+  "tbnadinjectordrmprodapimediaOPTIONSEE644F1D": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "AuthorizationType": "NONE",
+    "HttpMethod": "OPTIONS",
+    "Integration": {
+     "IntegrationResponses": [
+      {
+       "ResponseParameters": {
+        "method.response.header.Access-Control-Allow-Headers": "'*'",
+        "method.response.header.Access-Control-Allow-Origin": "'*'",
+        "method.response.header.Access-Control-Allow-Credentials": "'false'",
+        "method.response.header.Access-Control-Allow-Methods": "'*'"
+       },
+       "StatusCode": "200"
+      }
+     ],
+     "PassthroughBehavior": "NEVER",
+     "RequestTemplates": {
+      "application/json": "{\"statusCode\": 200}"
+     },
+     "Type": "MOCK"
+    },
+    "MethodResponses": [
+     {
+      "ResponseParameters": {
+       "method.response.header.Access-Control-Allow-Headers": true,
+       "method.response.header.Access-Control-Allow-Methods": true,
+       "method.response.header.Access-Control-Allow-Credentials": true,
+       "method.response.header.Access-Control-Allow-Origin": true
+      },
+      "StatusCode": "200"
+     }
+    ],
+    "RequestParameters": {
+     "method.request.header.CloudFront-Viewer-Latitude": false,
+     "method.request.header.CloudFront-Viewer-Longitude": false
+    },
+    "ResourceId": {
+     "Ref": "tbnadinjectordrmprodapimedia3AC58591"
+    },
+    "RestApiId": {
+     "Ref": "tbnadinjectordrmprodapi3BD893E0"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/media/OPTIONS/Resource"
+   }
+  },
+  "tbnadinjectordrmprodapimediaGETApiPermissiondspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8GETmedia774B76C9": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::ImportValue": "dspdrminfrastackprodtbndspdrmstackprodEAD063D5:ExportsOutputFnGetAtttbndspdrmmediaprodfunction831DFBABArn027B6D9A"
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:",
+       {
+        "Ref": "AWS::Region"
+       },
+       ":",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "tbnadinjectordrmprodapi3BD893E0"
+       },
+       "/",
+       {
+        "Ref": "tbnadinjectordrmprodapiDeploymentStageprodAF75377A"
+       },
+       "/GET/media"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/media/GET/ApiPermission.dspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8.GET..media"
+   }
+  },
+  "tbnadinjectordrmprodapimediaGETApiPermissionTestdspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8GETmedia5907DE74": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::ImportValue": "dspdrminfrastackprodtbndspdrmstackprodEAD063D5:ExportsOutputFnGetAtttbndspdrmmediaprodfunction831DFBABArn027B6D9A"
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:",
+       {
+        "Ref": "AWS::Region"
+       },
+       ":",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "tbnadinjectordrmprodapi3BD893E0"
+       },
+       "/test-invoke-stage/GET/media"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/media/GET/ApiPermission.Test.dspdrminfrastackprodtbnapidrmstackprodtbnadinjectordrmprodapiB01E59F8.GET..media"
+   }
+  },
+  "tbnadinjectordrmprodapimediaGET9E6C09F4": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "AuthorizationType": "NONE",
+    "HttpMethod": "GET",
+    "Integration": {
+     "IntegrationHttpMethod": "POST",
+     "Type": "AWS_PROXY",
+     "Uri": {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":apigateway:",
+        {
+         "Ref": "AWS::Region"
+        },
+        ":lambda:path/2015-03-31/functions/",
+        {
+         "Fn::ImportValue": "dspdrminfrastackprodtbndspdrmstackprodEAD063D5:ExportsOutputFnGetAtttbndspdrmmediaprodfunction831DFBABArn027B6D9A"
+        },
+        "/invocations"
+       ]
+      ]
+     }
+    },
+    "RequestParameters": {
+     "method.request.header.CloudFront-Viewer-Latitude": false,
+     "method.request.header.CloudFront-Viewer-Longitude": false
+    },
+    "ResourceId": {
+     "Ref": "tbnadinjectordrmprodapimedia3AC58591"
+    },
+    "RestApiId": {
+     "Ref": "tbnadinjectordrmprodapi3BD893E0"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/tbn-adinjector-drm-prod-api/Default/media/GET/Resource"
+   }
+  },
+  "playlistparamsvalidator16CAB9ED": {
+   "Type": "AWS::ApiGateway::RequestValidator",
+   "Properties": {
+    "Name": "playlist-params-validator",
+    "RestApiId": {
+     "Ref": "tbnadinjectordrmprodapi3BD893E0"
+    },
+    "ValidateRequestBody": false,
+    "ValidateRequestParameters": true
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/playlist-params-validator/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WQTQ6CQAxGz+IeRiReQHFrNJi4NYWpWH5mkOlICOHuDoJRVn19/dImDcUmCEWwgtb4qSz8khLRXxjSwnPq1kNNGTC20Ik+RsO7mrzorr54wLrUXYWKR/vXuRUZjm4Cl9e2SXEP5tfMiyY+Ij+0HNVMMT6tu3KFkiSwbqb00g1eCVUiQbjZGZuKjCGthjF6slxbXpxwHGkliT8ZpSWK3KxfYSC27gO5IfIbq5gqFPFU3963IeweAQAA"
+   },
+   "Metadata": {
+    "aws:cdk:path": "dsp-drm-infra-stack-prod/tbn-api-drm-stack-prod/CDKMetadata/Default"
+   },
+   "Condition": "CDKMetadataAvailable"
+  }
+ },
+ "Outputs": {
+  "tbnadinjectordrmprodapiEndpointDDBD0343": {
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "https://",
+      {
+       "Ref": "tbnadinjectordrmprodapi3BD893E0"
+      },
+      ".execute-api.",
+      {
+       "Ref": "AWS::Region"
+      },
+      ".",
+      {
+       "Ref": "AWS::URLSuffix"
+      },
+      "/",
+      {
+       "Ref": "tbnadinjectordrmprodapiDeploymentStageprodAF75377A"
+      },
+      "/"
+     ]
+    ]
+   }
+  }
+ },
+ "Conditions": {
+  "CDKMetadataAvailable": {
+   "Fn::Or": [
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "af-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ca-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "cn-north-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "cn-northwest-1"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-north-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-3"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "me-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "sa-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-east-2"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-west-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-west-2"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}
