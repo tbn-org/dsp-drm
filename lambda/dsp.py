@@ -80,60 +80,61 @@ def jwt_signed_url(path, API_SECRET , host="https://cdn.jwplayer.com"):
     
 
     token = jwt.encode(params, API_SECRET, algorithm="HS256")
-    url = "{host}{path}?token={token}".format(host=host, path=path, token=token)
+    print("ttttt")
+    print(token)
+    url = f"{host}{path}?token={token}"
     print(url)
     
     return url
 
 def get_jwplayer_media(media_id,env,device_context,DSP_DRM_SECRET,tenant="msm"):
-    url = "https://cdn.jwplayer.com/v2/media/{}".format(media_id)
+    #url = "https://cdn.jwplayer.com/v2/media/{}".format(media_id)
     headers = {
         "accept": "application/json",
     }
-    drm_policy = DSP_DRM_SECRET[env][tenant]["high"]
+    drm_policy = DSP_DRM_SECRET[env][tenant]["low"]
     
     if "roku" == device_context.get("platform", "android").lower():
         app_store_url= "https://channelstore.roku.com/details/adee2de8413d590eaadec69d4136d101/tbn-networks-tv"
         app_bundle = "4421"
-        drm_policy = DSP_DRM_SECRET[env][tenant]["high"]
+        drm_policy = DSP_DRM_SECRET[env][tenant]["low"]
 
     if "firetv" == device_context.get("platform", "android").lower():
         app_store_url= "https://www.amazon.com/TBN-Watch-Shows-Live-Free/dp/B01CV28J7A"
         app_bundle = "B01CV28J7A"
-        drm_policy = DSP_DRM_SECRET[env][tenant]["high"]
+        drm_policy = DSP_DRM_SECRET[env][tenant]["low"]
 
     if "ios" == device_context.get("platform", "android").lower():
         app_store_url= "https://apps.apple.com/us/app/tbn-watch-tv-live-on-demand/id348738437"
         app_bundle = "348738437"
-        drm_policy = DSP_DRM_SECRET[env][tenant]["high"]
+        drm_policy = DSP_DRM_SECRET[env][tenant]["low"]
 
     if "appletv" == device_context.get("platform", "android").lower():
         app_store_url= "https://apps.apple.com/us/app/tbn-watch-tv-live-on-demand/id348738437?platform=appleTV"
         app_bundle = "348738437"
-        drm_policy = DSP_DRM_SECRET[env][tenant]["high"]
+        drm_policy = DSP_DRM_SECRET[env][tenant]["low"]
 
     if "tvos" == device_context.get("platform", "android").lower():
         app_store_url= "https://apps.apple.com/us/app/tbn-watch-tv-live-on-demand/id348738437?platform=appleTV"
         app_bundle = "348738437"
-        drm_policy = DSP_DRM_SECRET[env][tenant]["high"]
+        drm_policy = DSP_DRM_SECRET[env][tenant]["low"]
 
     if "androidmobile" == device_context.get("platform", "android").lower():
         app_store_url= "https://play.google.com/store/apps/details?id=tbn_mobile.android"
         app_bundle = "tbn_mobile.android"
-        drm_policy = DSP_DRM_SECRET[env][tenant]["high"]
+        drm_policy = DSP_DRM_SECRET[env][tenant]["low"]
 
     if device_context.get("platform", "android").lower() in  ["samsungtv","lgtv","androidtv","android"]:
         app_store_url= "https://play.google.com/store/apps/details?id=tbn_mobile.android"
         app_bundle = "tbn_mobile.android"
-        drm_policy = DSP_DRM_SECRET[env][tenant]["high"]
-
+        drm_policy = DSP_DRM_SECRET[env][tenant]["low"]
 
     API_SECRET = DSP_DRM_SECRET[env][tenant]["api_key"]
 
-    
+    path = f"/v2/media/{media_id}/drm/{drm_policy}"
 
-    path = f"/v2/media/{media_id}/drm/{drm_policy}".format(media_id=media_id)
     url = jwt_signed_url(path,API_SECRET)
+
     response = requests.get(url)
 
     logger.info("Api call to get media %s with id finished with status: %s",
@@ -352,6 +353,9 @@ def create_media_feed(media_id, env, jwplayer_secret, DSP_DRM_SECRET,override_fe
         return "UNKMEDIAID"
 
     applicaster_feed = create_applicaster_feed_from_media(playlist,override_feedtype)
+
+    print("test 4343")
+    print(applicaster_feed)
 
     pipeline_config = [
         (

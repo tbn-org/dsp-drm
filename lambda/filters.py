@@ -53,6 +53,7 @@ def filter_feature_image(feed_entry):
         featured_media_items)
     return feed_entry
 def filter_drm(feed_entry):
+
     widevine_url = None
     playready_url = None
     fairplay_license_server_url = None
@@ -87,11 +88,8 @@ def filter_drm(feed_entry):
     }
 
     feed_entry["extensions"].setdefault("drm", drm)
-
+    #feed_entry["extensions"]["preview_playback"] = feed_entry["content"]["src"]
     return feed_entry
-
-
-
 
 
 # Filter to add link key to the applicaster feed

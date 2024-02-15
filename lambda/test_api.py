@@ -44,8 +44,7 @@ def test_media():
     event = {}
     event["path"] = "/media"
 
-    query_parms = {"mediaid": "ON5zQOxu",
-                   "ctx": "eyJidW5kbGVJZGVudGlmaWVyIjoidGJuX2ZpcmV0di5hbmRyb2lkIiwicGxhdGZvcm0iOiJhbWF6b25fZmlyZV90diIsImFwcF9uYW1lIjoiVEJOIiwidXNlckFnZW50IjoiTW96aWxsYS81LjAgKExpbnV4OyBBbmRyb2lkIDcuMS4yOyBBRlRNTSBCdWlsZC9OUzY3MDA7IHd2KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBWZXJzaW9uLzQuMCBDaHJvbWUvMTE2LjAuMC4wIE1vYmlsZSBTYWZhcmkvNTM3LjM2IiwiZGV2aWNlSGVpZ2h0IjoxMDgwLCJzdG9yZSI6ImFtYXpvbiIsImRldmljZVR5cGUiOiJ0YWJsZXQiLCJsYW5ndWFnZUNvZGUiOiJlbiIsImRldmljZVdpZHRoIjoxOTIwLCJzZGtfdmVyc2lvbiI6IjkuNS4wIiwidmVyc2lvbl9uYW1lIjoiOC4wLjIifQ"
+    query_parms = {"mediaid": "ON5zQOxu"
                    }
     event["queryStringParameters"] = query_parms
     res = handler_media.lambda_handler(event, {})
