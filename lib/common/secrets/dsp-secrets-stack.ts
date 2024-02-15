@@ -7,7 +7,6 @@ import { Construct } from "constructs";
 
 export interface SecretsStackProps extends cdk.StackProps {
     jwplayerSecretName: string;
-    dspdrmSecretName: string;
 }
 
 export class SecretsStack extends cdk.Stack {
@@ -20,7 +19,6 @@ export class SecretsStack extends cdk.Stack {
     super(scope, id, props);
 
     this.jwplayerSecret = secretsManager.Secret.fromSecretNameV2(this, "jwplayerSecret",props.jwplayerSecretName);
-    this.dspdrmSecret = secretsManager.Secret.fromSecretNameV2(this, "dspdrmSecret",props.dspdrmSecretName);
 
 
   }

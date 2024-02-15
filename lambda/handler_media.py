@@ -33,7 +33,7 @@ FEED_LINK_URL = os.environ['FEED_LINK_URL']
 JWPLAYER_API_KEY = os.environ['JWPLAYER_API_KEY']
 env = os.environ['env']
 
-DSP_DRM_SECRET = json.loads(parameters.get_secret("DSP_DRM_SECRET"))
+#DSP_DRM_SECRET = json.loads(parameters.get_secret("DSP_DRM_SECRET"))
 
 
 def lambda_handler(event, context):
@@ -69,7 +69,7 @@ def lambda_handler(event, context):
 
 
     applicaster_feed = create_media_feed(
-        media_id,env, jwplayer_secret,DSP_DRM_SECRET,override_feedtype, AD_MARKERS_TABLE, applicaster_context, cloudfront_context, country,type_override)
+        media_id,env, jwplayer_secret,override_feedtype, AD_MARKERS_TABLE, applicaster_context, cloudfront_context, country,type_override)
     
 
     if applicaster_feed == "UNKMEDIAID":

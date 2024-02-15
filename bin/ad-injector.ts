@@ -7,7 +7,6 @@ import { DspInfraStack } from "../lib/dsp-infra-stack";
 
 const app = new cdk.App();
 const JWPLAYER_SECRET_NAME = "tbn-dsp-jwplayer"
-const DSP_DRM_SECRET = "DSP_DRM_SECRET"
 
 
 new DspInfraStack(app, "dsp-drm-infra-stack-dev", {
@@ -16,7 +15,6 @@ new DspInfraStack(app, "dsp-drm-infra-stack-dev", {
   adBreaksTableArn : "arn:aws:dynamodb:us-west-2:595511454258:table/tbn-dsp-adbreaks",
   // Secrets manager Secret name
   jwplayerSecretName: "tbn-dsp-jwplayer",
-  dspdrmSecretName: "DSP_DRM_SECRET",
   cachingTTL:300,
   jwProperty:"",
   env: {
@@ -31,7 +29,6 @@ new DspInfraStack(app, "dsp-drm-infra-stack-stg", {
   adBreaksTableArn : "arn:aws:dynamodb:us-west-2:690231661505:table/tbn-dsp-adbreaks",
   // Secrets manager Secret name
   jwplayerSecretName: "tbn-dsp-jwplayer",
-  dspdrmSecretName: "DSP_DRM_SECRET",
   cachingTTL:300,
   jwProperty:"",
   env: {
@@ -47,7 +44,6 @@ new DspInfraStack(app, "dsp-drm-infra-stack-prod", {
   adBreaksTableArn: "arn:aws:dynamodb:us-west-2:722984510186:table/tbn-dsp-adbreaks",
   // Secrets manager Secret name
   jwplayerSecretName: "JWP_SECRET",
-  dspdrmSecretName: "DSP_DRM_SECRET",
   cachingTTL:1800,
   jwProperty:"",
   env: {
