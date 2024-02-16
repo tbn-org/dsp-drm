@@ -11,7 +11,7 @@ const JWPLAYER_SECRET_NAME = "tbn-dsp-jwplayer"
 
 new DspInfraStack(app, "dsp-drm-infra-stack-dev", {
   deployEnv: "dev",
-  baseUrl: "https://tbn-dsp-api-dev.tbnsandbox.com/v1",
+  baseUrl: "https://msm-stage-dsp-api.tbnstage.com/v1",
   adBreaksTableArn : "arn:aws:dynamodb:us-west-2:595511454258:table/tbn-dsp-adbreaks",
   // Secrets manager Secret name
   jwplayerSecretName: "tbn-dsp-jwplayer",
@@ -25,7 +25,7 @@ new DspInfraStack(app, "dsp-drm-infra-stack-dev", {
 
 new DspInfraStack(app, "dsp-drm-infra-stack-stg", {
   deployEnv: "stg",
-  baseUrl: "https://6wbo1srmr9.execute-api.us-west-2.amazonaws.com/prod",
+  baseUrl: "https://msm-stage-dsp-api.tbnstage.com/v1",
   adBreaksTableArn : "arn:aws:dynamodb:us-west-2:690231661505:table/tbn-dsp-adbreaks",
   // Secrets manager Secret name
   jwplayerSecretName: "tbn-dsp-jwplayer",
@@ -40,7 +40,7 @@ new DspInfraStack(app, "dsp-drm-infra-stack-stg", {
 
 new DspInfraStack(app, "dsp-drm-infra-stack-prod", {
   deployEnv: "prod",
-  baseUrl: "https://tbn-dsp-api-prod.tbncloud.com/v1",
+  baseUrl: "https://msm-dsp-api-prod.tbncloud.com/v1",
   adBreaksTableArn: "arn:aws:dynamodb:us-west-2:722984510186:table/tbn-dsp-adbreaks",
   // Secrets manager Secret name
   jwplayerSecretName: "JWP_SECRET",

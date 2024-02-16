@@ -208,14 +208,18 @@ def process_applicaster_feed_pipeline(feed, pipeline_config):
 
 
 # API get playlist applicaster pipe2 feed
-def create_playlist_feed(playlist_id,query_string,
-                         media_link_base_url,override_feedtype,
+def create_playlist_feed(playlist_id,
+                         media_link_base_url,override_feedtype=None,
                          page_offset=1,
                          page_limit=50,
                          geo_location="",
                          feed_title_override=None,
-                         type_override=None
+                         type_override=None,
+                         query_string=None
                          ):
+
+
+    
 
     if geo_location is None:
         geo_location = ''
@@ -366,7 +370,9 @@ def create_app_config_feed(config_id,
 
     playlist_id = contents_filtered[index]["contentId"]
     logging.info("get playlist id from playlist_id:%s", playlist_id)
-    return create_playlist_feed(playlist_id,
+    return create_playlist_feed(playlist_id=playlist_id,
                                 geo_location=geo_location,
                                 feed_title_override=feed_title_override,
                                 media_link_base_url=dsp_base_url)
+
+
