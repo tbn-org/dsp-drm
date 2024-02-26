@@ -19,6 +19,9 @@ export class LambdaStack extends Stack {
   public mediaFunction: lambda.Function;
   public searchFunction: lambda.Function;
   public appconfigFunction: lambda.Function;
+  public accountFunction: lambda.Function;
+
+  
 
   constructor(scope: Construct, id: string, props: LambdaStackProps) {
     super(scope, id, props);
@@ -55,6 +58,24 @@ export class LambdaStack extends Stack {
       handler: "handler_media.lambda_handler",
       environment: environmentVariables,
     });
+
+
+    this.accountFunction = new lambda.Function(this, `tbn-dsp-drm-account-${deployenv}-function`, {
+      functionName: `tbn-dsp-drm-account-${deployenv}-function`,
+      description: "lambda function to handler /account dsp endpoint.",
+      runtime: lambda.Runtime.PYTHON_3_9, // execution environment
+      timeout: cdk.Duration.seconds(60),
+      code: lambda.Code.fromAsset(path.join(__dirname, "../../../lambda/"), {
+        bundling: {
+          image: lambda.Runtime.PYTHON_3_9.bundlingImage,
+          command: ["bash", "-c", "pip install -r requirements.txt -t /asset-output && cp -au . /asset-output"],
+        },
+      }),
+      handler: "handler_account.lambda_handler", // file is "hello", function is "handler"
+      environment: environmentVariables,
+    });
+
+
 
     this.appconfigFunction = new lambda.Function(this, `tbn-dsp-drm-appconfig-${deployenv}-function`, {
       functionName: `tbn-dsp-drm-appconfig-${deployenv}-function`,

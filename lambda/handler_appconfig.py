@@ -28,7 +28,6 @@ FEED_LINK_URL = os.environ['FEED_LINK_URL']
 
 
 def lambda_handler(event, context):
-    print("Test this is the latest version, DSP appconfig endpoint")
     logger.info("Received event:%s", event)
     cloud_front_context  = get_cloud_front_context(event)
     country = cloud_front_context.get("country")

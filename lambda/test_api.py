@@ -44,7 +44,7 @@ def test_media():
     event = {}
     event["path"] = "/media"
 
-    query_parms = {"mediaid": "ON5zQOxu"
+    query_parms = {"mediaid": "v35aP0VD"
                    }
     event["queryStringParameters"] = query_parms
     res = handler_media.lambda_handler(event, {})

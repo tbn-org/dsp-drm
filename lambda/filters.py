@@ -36,11 +36,10 @@ def filter_next_link(feed, api_base_url):
 
 # filter to add requires_authentication extension
 def filter_need_authentication(feed_entry):
+    feed_entry["extensions"]["requires_authentication"] = True
     if "tags" in feed_entry:
         if "free" in feed_entry["tags"]:
             feed_entry["extensions"]["requires_authentication"] = False
-        else:
-            feed_entry["extensions"]["requires_authentication"] = True
     return feed_entry
 
 

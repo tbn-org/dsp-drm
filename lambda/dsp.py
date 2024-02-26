@@ -80,11 +80,7 @@ def jwt_signed_url(path, API_SECRET , host="https://cdn.jwplayer.com"):
     
 
     token = jwt.encode(params, API_SECRET, algorithm="HS256")
-    print("ttttt")
-    print(token)
     url = f"{host}{path}?token={token}"
-    print(url)
-    
     return url
 
 def get_jwplayer_media(media_id,tenant="msm"):
@@ -99,6 +95,8 @@ def get_jwplayer_media(media_id,tenant="msm"):
     if response.status_code not in [200]:
         logger.info(f"Error UNKMEDIAID: error_response {response.status_code } mediaid {media_id} while getting media with url: %s ", url )
         return "UNKMEDIAID"
+
+
     return response.json()
 
 
@@ -314,8 +312,6 @@ def create_media_feed(media_id, env, jwplayer_secret,override_feedtype,ad_breaks
 
     applicaster_feed = create_applicaster_feed_from_media(playlist,override_feedtype)
 
-    print("test 4343")
-    print(applicaster_feed)
 
     pipeline_config = [
         (
@@ -324,7 +320,6 @@ def create_media_feed(media_id, env, jwplayer_secret,override_feedtype,ad_breaks
             filter_feature_image,
             filter_add_signed_content,
             filter_geo_location,
-            filter_drm,
             filter_ssai,
             filter_cleanup_feed,
             filter_override_type),
@@ -334,7 +329,6 @@ def create_media_feed(media_id, env, jwplayer_secret,override_feedtype,ad_breaks
             [],
             [jwplayer_secret],
             [geo_location],
-            [],
             [device_context,cloudfront_context],            
             [],
             [override_type],

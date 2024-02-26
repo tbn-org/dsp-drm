@@ -10,6 +10,7 @@ export interface ApiStackProps extends cdk.StackProps {
     playlistLambdaFunction: lambda.Function;
     mediaLambdaFunction: lambda.Function;
     searchLambdaFunction: lambda.Function;
+    accountLambdaFunction: lambda.Function;
     appConfigLambdaFunction: lambda.Function;
     cachingTTL: number;
   }
@@ -24,6 +25,7 @@ export interface ApiStackProps extends cdk.StackProps {
         const deployenv = props.deployenv;
         const playlistLambdaFunction= props.playlistLambdaFunction
         const mediaLambdaFunction= props.mediaLambdaFunction;
+        const accountLambdaFunction= props.accountLambdaFunction;
         const searchLambdaFunction= props.searchLambdaFunction
         const appConfigLambdaFunction= props.appConfigLambdaFunction;
         const cachingTTL = props.cachingTTL;
@@ -39,6 +41,10 @@ export interface ApiStackProps extends cdk.StackProps {
               loggingLevel: apigw.MethodLoggingLevel.INFO,
               methodOptions:{
                 "/media/GET":{
+                  cachingEnabled: false,
+                  metricsEnabled: true,
+                } ,
+                "/account/GET":{
                   cachingEnabled: false,
                   metricsEnabled: true,
                 }
@@ -155,7 +161,26 @@ export interface ApiStackProps extends cdk.StackProps {
               requestValidator: queryParmsValidator,
             }
           );
-          
+
+          const accountResource = this.restApi.root.addResource("account", {
+            defaultMethodOptions: {
+              requestParameters: {
+              },
+            },
+          });
+          addCorsOptions(accountResource);
+
+          accountResource.addMethod(
+            "GET",
+            new apigw.LambdaIntegration(accountLambdaFunction, {
+
+            }),
+            {
+              requestValidator: queryParmsValidator,
+            }
+          );
+
+
           configResorce.addMethod(
             "GET",
             new apigw.LambdaIntegration(appConfigLambdaFunction, {

@@ -56,6 +56,7 @@ export class DspInfraStack extends cdk.Stack {
       deployenv: deployenv,
       playlistLambdaFunction: lambdaStack.playlistFunction,
       mediaLambdaFunction: lambdaStack.mediaFunction,
+      accountLambdaFunction: lambdaStack.accountFunction,
       searchLambdaFunction: lambdaStack.searchFunction,
       appConfigLambdaFunction: lambdaStack.appconfigFunction,
       cachingTTL: cachingTTL,

@@ -59,6 +59,7 @@ def lambda_handler(event, context):
     except: 
         tenant = None
 
+
     logger.info("Getting media feed with id :%s", media_id)
     if "override_type" in query_params:
         type_override = query_params['override_type'] 
