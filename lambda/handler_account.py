@@ -5,9 +5,7 @@ import logging
 import uuid
 import sys
 import structlog
-from db import fetch_ad_markers_by_mediaid,fetch_svod_subs_status
 from utils import configure_structured_log, create_struc_log_context, get_applicaster_context, get_cloud_front_context
-from filters import filter_get_subscription_info
 import os 
 
 from dotenv import load_dotenv

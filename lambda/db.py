@@ -12,6 +12,9 @@ import urllib.parse
 # import csv
 import urllib.parse
 import copy
+from boto3.dynamodb.conditions import Key,Attr,And
+from datetime import datetime, timezone
+
 
 logger = logging.getLogger()
 
@@ -52,3 +55,6 @@ def fetch_ad_markers_by_mediaid(media_id, table_name):
     except Exception as e:
         logger.warning("record not found in the ad slots cache %s", e)
     return []
+
+dynamodb = boto3.resource('dynamodb')
+
