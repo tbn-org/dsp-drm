@@ -14,21 +14,16 @@ from structlog.contextvars import (
     clear_contextvars,
 )
 
-
-
 load_dotenv()
-
 # table name from ENV
 AD_MARKERS_TABLE = os.environ['AD_MARKERS_TABLE']
 #todo 
-SVOD_SUBS_TBL = os.environ['SVOD_SUBS_TBL']
-TVOD_SUBS_TBL = os.environ['TVOD_SUBS_TBL']
+
 
 FEED_LINK_URL = os.environ['FEED_LINK_URL']
 jwplayer_secret = os.environ['JWPLAYER_API_KEY']
-db_tables = {"AD_BREAKS_TABLE":AD_MARKERS_TABLE ,"SVOD_SUBS_TBL" :SVOD_SUBS_TBL , "TVOD_SUBS_TBL" :TVOD_SUBS_TBL }
+db_tables = {"AD_BREAKS_TABLE":AD_MARKERS_TABLE }
 
-PURCHASE_URL = os.environ['PURCHASE_URL']
 
 logging.basicConfig(
     format="%(asctime)s  %(message)s",
@@ -61,7 +56,7 @@ def lambda_handler(event, context):
 
     entry = []
 
-    src= f"{PURCHASE_URL}/select-plan?open_external_url=true"
+    src= ""
 
 
     if applicaster_context.get("platform", "android").lower() in  ["ios","tvos"]:
