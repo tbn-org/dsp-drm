@@ -58,12 +58,8 @@ def lambda_handler(event, context):
 
     src= ""
 
-
     if applicaster_context.get("platform", "android").lower() in  ["ios","tvos"]:
         src= f"tbn-app://externalLinkAccount/?developer=Trinity%20Broadcasting%20Network"
-
-    
-
     account_details = {"content":{"src":src,"type":"link"},
                   "extensions":{"buttonLabel":"Manage Account"},
                   "id":unique_id,
@@ -84,7 +80,7 @@ def lambda_handler(event, context):
 
     applicaster_feed["entry"] = entry
 
-    if applicaster_context["okta_user_id"] is None:
+    if "okta_user_id" not in applicaster_context:
         applicaster_feed = {} 
 
     return {

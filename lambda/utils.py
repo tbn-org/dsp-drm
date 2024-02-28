@@ -10,28 +10,27 @@ def decode_request_context(encoded_string):
     decoded_string = base64.b64decode(encoded_string+'==')
     return json.loads(decoded_string)
 
-
 def get_applicaster_context(event):
 
-    print("get_applicaster_contextget_applicaster_context",event)
     query_params = event['queryStringParameters']
     path = event['path']
-    bundle_identifier = ''
-    platform = ''
     app_name = 'tbn.tv'
     user_agent = 'Mozilla/5.0 (Windows NT 10.'
-    device_type = ''
-    device_height=''
-    device_width=''
     language = 'en'
-    app_store = ''
-    source_ip =''
-    advertisingidentifier = ''
+    app_store = device_width = device_height = bundle_identifier = device_type = source_ip = platform = advertisingidentifier = ''
 
     ctx_query_params = {}
     if "ctx" in query_params:
         ctx_base64_str = query_params['ctx']
         ctx_query_params = decode_request_context(ctx_base64_str)
+
+
+    if ctx_query_params.get("quick-brick-login-flow.uid","undefined") != "undefined":
+        uid = ctx_query_params.get("quick-brick-login-flow.uid")
+    elif ctx_query_params.get("zapp_login_plugin_oauth_2_0.uid","undefined") != "undefined":
+        uid = ctx_query_params.get("zapp_login_plugin_oauth_2_0.uid")
+    else:
+        uid = None
 
     if "bundleIdentifier" in ctx_query_params:
         bundle_identifier = ctx_query_params["bundleIdentifier"]
@@ -59,7 +58,6 @@ def get_applicaster_context(event):
     except:
         pass
 
-
     device_context = {
         'bundle_identifier': bundle_identifier,
         'platform': platform,
@@ -71,9 +69,35 @@ def get_applicaster_context(event):
         'language': language,
         "device_type": device_type,
         "source_ip": source_ip ,
-        "advertisingidentifier" : advertisingidentifier               
+        "advertisingidentifier" : advertisingidentifier,
+        "okta_user_id" : uid          
     }
+
+    #added to support account management response 
+    if "zapp_login_plugin_oauth_2_0.firstName" in ctx_query_params:
+        device_context['firstName'] = ctx_query_params["zapp_login_plugin_oauth_2_0.firstName"]
+    if "zapp_login_plugin_oauth_2_0.lastName" in ctx_query_params:
+        device_context['lastName'] = ctx_query_params["zapp_login_plugin_oauth_2_0.lastName"]        
+    if "zapp_login_plugin_oauth_2_0.sub" in ctx_query_params:
+        device_context['email'] = ctx_query_params["zapp_login_plugin_oauth_2_0.sub"]
+
+    if "zapp_login_plugin_oauth_tv_2_0.firstName" in ctx_query_params:
+        device_context['firstName'] = ctx_query_params["zapp_login_plugin_oauth_tv_2_0.firstName"]
+    if "zapp_login_plugin_oauth_tv_2_0.lastName" in ctx_query_params:
+        device_context['lastName'] = ctx_query_params["zapp_login_plugin_oauth_tv_2_0.lastName"]        
+    if "zapp_login_plugin_oauth_tv_2_0.sub" in ctx_query_params:
+        device_context['email'] = ctx_query_params["zapp_login_plugin_oauth_tv_2_0.sub"]
+
+    if "quick-brick-login-flow.firstName" in ctx_query_params:
+        device_context['firstName'] = ctx_query_params["quick-brick-login-flow.firstName"]
+    if "quick-brick-login-flow.lastName" in ctx_query_params:
+        device_context['lastName'] = ctx_query_params["quick-brick-login-flow.lastName"]        
+    if "quick-brick-login-flow.sub" in ctx_query_params:
+        device_context['email'] = ctx_query_params["quick-brick-login-flow.sub"]
+
+
     return device_context
+
 
 def get_cloud_front_context(event):
     if "headers" not in event:
