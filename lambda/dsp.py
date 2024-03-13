@@ -304,7 +304,20 @@ def create_playlist_search_feed(playlist_id,
     return applicaster_feed
 
 
-def create_media_feed(media_id, env, jwplayer_secret,override_feedtype,ad_breaks_table, device_context, cloudfront_context, geo_location="",override_type=None):
+def create_media_feed(args):
+
+
+    media_id = args.get("media_id")
+    env = args.get("env")
+    jwplayer_secret = args.get("jwplayer_secret")
+    override_feedtype = args.get("override_feedtype")
+    ad_breaks_table = args.get("AD_MARKERS_TABLE")  
+    device_context = args.get("applicaster_context") 
+    cloudfront_context = args.get("cloudfront_context")
+    geo_location = args.get("country", "")  
+    override_type = args.get("type_override", None)  
+    vod_ad_config = args.get("vod_ad_config")
+    ad_config = args.get("ad_config")
 
     playlist = get_jwplayer_media(media_id)
     if playlist == "UNKMEDIAID" :
