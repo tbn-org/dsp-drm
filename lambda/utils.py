@@ -17,6 +17,7 @@ def get_applicaster_context(event):
     app_name = 'tbn.tv'
     user_agent = 'Mozilla/5.0 (Windows NT 10.'
     language = 'en'
+    is_live = "no"
     app_store = device_width = device_height = bundle_identifier = device_type = source_ip = platform = advertisingidentifier = ''
 
     ctx_query_params = {}
@@ -53,6 +54,10 @@ def get_applicaster_context(event):
     if "advertisingIdentifier" in ctx_query_params:
         advertisingidentifier = ctx_query_params["advertisingIdentifier"]
 
+    if "is_live" in ctx_query_params:
+        is_live = ctx_query_params["is_live"]
+
+
     try:
         source_ip = event['requestContext']['identity']['sourceIp']
     except:
@@ -62,6 +67,7 @@ def get_applicaster_context(event):
         'bundle_identifier': bundle_identifier,
         'platform': platform,
         'app_name': app_name,
+        'is_live': is_live,
         'user_agent': user_agent,
         'device_width': device_width,
         'device_height': device_height,

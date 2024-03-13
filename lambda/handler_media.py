@@ -1,4 +1,5 @@
 import json
+import boto3
 import json
 import logging
 import os
@@ -36,10 +37,19 @@ env = os.environ['env']
 #DSP_DRM_SECRET = json.loads(parameters.get_secret("DSP_DRM_SECRET"))
 
 
+s3 = boto3.client('s3')
+
+obj = s3.get_object(Bucket="kirandspteststgadconfig", Key="dsp_config.json")
+content = obj['Body'].read().decode('utf-8')
+dsp_config = json.loads(content)
+
+print(dsp_config)
+
 def lambda_handler(event, context):
     logger.info("event: %s", event)
     logger.info("JWPLAYER_API_KEY: %s", JWPLAYER_API_KEY)
     jwplayer_secret = parameters.get_secret(JWPLAYER_API_KEY)
+    print(dsp_config)
 
 
     clear_contextvars()
@@ -58,7 +68,36 @@ def lambda_handler(event, context):
         tenant = query_params["tenant"]
     except: 
         tenant = None
+    fast_tag = "no"
+    vod_tag = "no"
+    # this is MSM DSP
+    app_family_id = "meritplus"
+    ad_config = {} 
+    is_live = "no"
+    if "is_live" in applicaster_context:
+         fast_tag = "yes"
+         ad_config['ad_tag'] = dsp_config['base_settings']['ad_tag_fast']
 
+
+    else: 
+         vod_tag = "yes"
+         ad_config['ad_tag'] = dsp_config['base_settings']['ad_tag_vod']
+
+    # get the type of platform
+         
+    for x in dsp_config["app_settings"]:
+         if x["app_family_id"] == "meritplus":
+              for i in x["devices"]:
+                   if i['platform'].lower() == applicaster_context.get("platform", "android").lower():
+                        ad_config['app_bundle'] = i["settings"]['bundle_identifier']
+                        ad_config['app_store_url'] = i["settings"]['app_store_url']
+                        if vod_tag == "yes":
+                            ad_config['site_id'] = i["settings"]['ad_tag_vod_id']
+                        if fast_tag == "yes":
+                             ad_config['site_id'] = i["settings"]['ad_tag_fast_id']
+
+    print("test spot 333")
+    print(ad_config)
 
     logger.info("Getting media feed with id :%s", media_id)
     if "override_type" in query_params:
