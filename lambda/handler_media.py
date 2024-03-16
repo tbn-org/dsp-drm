@@ -72,7 +72,7 @@ def lambda_handler(event, context):
     vod_tag = "no"
     # this is MSM DSP
     app_family_id = "meritplus"
-    ad_config = {}
+    fast_ad_config = {}
     vod_ad_config = {}
 
     # this is needed for preroll.
@@ -81,25 +81,39 @@ def lambda_handler(event, context):
     is_live = "no"
     if "is_live" in applicaster_context:
         fast_tag = "yes"
-        ad_config['ad_tag'] = dsp_config['base_settings']['ad_tag_fast']
+        fast_ad_config['ad_tag'] = dsp_config['base_settings']['ad_tag_fast']
     else:
         vod_tag = "yes"
-        ad_config['ad_tag'] = dsp_config['base_settings']['ad_tag_vod']
+        vod_ad_config['ad_tag'] = dsp_config['base_settings']['ad_tag_vod']
 
     # get the type of platform
+
+    
+
+    if applicaster_context.get("platform", "android").upper() == "ROKU":
+        platform_re= "Connectedtv"
+    elif applicaster_context.get("platform", "android").upper() in ["IOS","IPHONE","IPAD","IPOD"]:
+        platform_re = "mobile"
+    else:
+        platform_re = "Connectedtv"
+    fast_ad_config["platform_ad"] = platform_re
+    vod_ad_config["platform_ad"] = platform_re
+
+
+
 
     for x in dsp_config["app_settings"]:
         if x["app_family_id"] == "meritplus":
             for i in x["devices"]:
                 if i['platform'].lower() == applicaster_context.get("platform", "android").lower():
-                    ad_config['app_bundle'] = i["settings"]['bundle_identifier']
-                    ad_config['app_store_url'] = i["settings"]['app_store_url']
+                    fast_ad_config['app_bundle'] = i["settings"]['bundle_identifier']
+                    fast_ad_config['app_store_url'] = i["settings"]['app_store_url']
                     vod_ad_config['app_bundle'] = i["settings"]['bundle_identifier']
                     vod_ad_config['app_store_url'] = i["settings"]['app_store_url']
                     if vod_tag == "yes":
-                        ad_config['site_id'] = i["settings"]['ad_tag_vod_id']
+                        fast_ad_config['site_id'] = i["settings"]['ad_tag_vod_id']
                     if fast_tag == "yes":
-                        ad_config['site_id'] = i["settings"]['ad_tag_fast_id']
+                        fast_ad_config['site_id'] = i["settings"]['ad_tag_fast_id']
                     vod_ad_config['site_id'] = i["settings"]['ad_tag_vod_id']
 
     logger.info("Getting media feed with id :%s", media_id)
@@ -118,7 +132,7 @@ def lambda_handler(event, context):
                        "country": country,
                        "type_override": type_override,
                        "vod_ad_config": vod_ad_config,
-                       "ad_config": ad_config
+                       "ad_config": fast_ad_config
                        }
 
     applicaster_feed = create_media_feed(media_feed_args)

@@ -137,7 +137,9 @@ def prepare_video_ad_extention(media_item,markers, ad_parms):
     return video_ads
 
 
-def inject_adds(media_obj, ad_markers, device_context):
+def inject_adds(media_obj, ad_markers, device_context,vod_ad_config,fast_ad_config)):
+
+    print(vod_ad_config,fast_ad_config)
 
 
     platform_re = device_context.get("platform", "mobile")
@@ -159,8 +161,6 @@ def inject_adds(media_obj, ad_markers, device_context):
         app_bundle = "B01CV28J7A"
     else:
         app_bundle = "tbn_mobile.android"
-
-
 
     AD_PARAMS = {
         "site_id":24600,
