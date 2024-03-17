@@ -224,9 +224,6 @@ def filter_inject_ads(feed_entry, table_name, device_context,vod_ad_config,fast_
     video_ads = inject_adds(feed_entry, ad_markers, device_context,vod_ad_config,fast_ad_config)
 
 
-    print("video_ads")
-    print(video_ads)
-
     feed_entry["extensions"]["video_ads"] = video_ads
     return feed_entry
 

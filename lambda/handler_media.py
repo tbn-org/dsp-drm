@@ -43,14 +43,11 @@ obj = s3.get_object(Bucket="kirandspteststgadconfig", Key="dsp_config.json")
 content = obj['Body'].read().decode('utf-8')
 dsp_config = json.loads(content)
 
-print(dsp_config)
-
 
 def lambda_handler(event, context):
     logger.info("event: %s", event)
     logger.info("JWPLAYER_API_KEY: %s", JWPLAYER_API_KEY)
     jwplayer_secret = parameters.get_secret(JWPLAYER_API_KEY)
-    print(dsp_config)
 
     clear_contextvars()
     query_params = event['queryStringParameters']
@@ -81,8 +78,6 @@ def lambda_handler(event, context):
 
     is_live = "no"
     if applicaster_context["is_live"] == "yes":
-        print("is_live?")
-        print(applicaster_context)
 
         fast_tag = "yes"
         fast_ad_config["fast_tag"] = fast_tag
@@ -101,9 +96,6 @@ def lambda_handler(event, context):
         if x["app_family_id"] == "meritplus":
             for i in x["devices"]:
                 if i['platform'].lower() == applicaster_context.get("platform", "android").lower():
-                    print("new test here ")
-                    print(i)
-                    print(applicaster_context)
 
                     fast_ad_config['app_bundle'] = i["settings"]['app_bundle']
                     fast_ad_config['app_store_url'] = i["settings"]['app_store_url']

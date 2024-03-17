@@ -87,11 +87,9 @@ def prepare_video_ad_extention(media_item,markers, ad_parms):
     has_preroll = False
     # episode_duration = episode["extensions"]["duration"]
     for marker in markers:
-        print(marker)
-        print("marker")
-        offset = marker["breaktime"]
-        print(offset)
 
+        offset = marker["breaktime"]
+  
         break_mode = marker["break_mode"]
         ad_slot = marker["slot"]
         is_live_stream = False
@@ -102,7 +100,7 @@ def prepare_video_ad_extention(media_item,markers, ad_parms):
 
         ad_Service_url =  create_publica_url(ad_parms, ad_service_base_url)
         if offset == 0:
-            print("inside if ")
+
             offset = "preroll"
             custom5 = "preroll"
             ad_parms = ad_parms
@@ -117,11 +115,9 @@ def prepare_video_ad_extention(media_item,markers, ad_parms):
             })
             has_preroll = True
         else:
-            print("insidie else ")
+
             ad_position = media_duration- float(offset)
-            print(media_duration)
-            print(offset)
-            print(ad_position)
+
             # skip the ads towords th end of the video
             if ad_position >= 5:
                 ad_parms = ad_parms
@@ -136,12 +132,12 @@ def prepare_video_ad_extention(media_item,markers, ad_parms):
                     "ad_url": AD_URL
                 })
     if len(video_ads) <= 0:
-        print("inside first")
+
         ad_parms = ad_parms
         return [create_default_ad_extentions(ad_parms)]
 
     if not has_preroll:
-        print("inside second")
+
         ad_parms = ad_parms
         video_ads.insert(0, create_default_ad_extentions(ad_parms))
 
@@ -164,12 +160,6 @@ def replace_url_values(url, replacement_dict):
 
 def inject_adds(media_obj, ad_markers, device_context,vod_ad_config,fast_ad_config):
 
-    print("vod_ad_config")
-    print(vod_ad_config)
-
-    print("break")
-    print("fast_ad_config")
-    print(fast_ad_config)
 
     platform_re = device_context.get("platform", "mobile")
     platform_app_context = device_context.get("platform", "mobile")
