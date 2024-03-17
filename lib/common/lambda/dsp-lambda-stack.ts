@@ -29,6 +29,19 @@ export class LambdaStack extends Stack {
     const deployenv = props.deployenv;
     const environmentVariables = props.environmentVariables;
 
+    const s3Bucket = new s3.Bucket(this, `tbn-dsp-adconfig-bucket-${deployenv}`, {
+      bucketName: `tbn-dsp-adconfig-bucket-${deployenv}`,
+      
+    });
+
+    environmentVariables['S3_BUCKET_NAME'] = s3Bucket.bucketName;
+
+    const s3Policy = new iam.PolicyStatement({
+      actions: ["s3:GetObject"],
+      resources: [s3Bucket.bucketArn + "/*"], 
+    });
+    
+
     this.playlistFunction = new lambda.Function(this, `tbn-dsp-drm-playlist-${deployenv}-function`, {
       functionName: `tbn-dsp-drm-playlist-${deployenv}-function`,
       description: "lambda function to handler /playlist dsp endpoint.",
@@ -59,6 +72,11 @@ export class LambdaStack extends Stack {
       environment: environmentVariables,
     });
 
+    this.mediaFunction.role?.attachInlinePolicy(
+      new iam.Policy(this, "MediaLambdaS3AccessPolicy", {
+        statements: [s3Policy],
+      })
+    );
 
     this.accountFunction = new lambda.Function(this, `tbn-dsp-drm-account-${deployenv}-function`, {
       functionName: `tbn-dsp-drm-account-${deployenv}-function`,

@@ -32,6 +32,12 @@ logger = structlog.get_logger(__name__)
 AD_MARKERS_TABLE = os.environ['AD_MARKERS_TABLE']
 FEED_LINK_URL = os.environ['FEED_LINK_URL']
 JWPLAYER_API_KEY = os.environ['JWPLAYER_API_KEY']
+
+dsp_config_bucket = os.environ['S3_BUCKET_NAME']
+
+
+
+
 env = os.environ['env']
 
 # DSP_DRM_SECRET = json.loads(parameters.get_secret("DSP_DRM_SECRET"))
@@ -39,7 +45,7 @@ env = os.environ['env']
 
 s3 = boto3.client('s3')
 
-obj = s3.get_object(Bucket="kirandspteststgadconfig", Key="dsp_config.json")
+obj = s3.get_object(Bucket=dsp_config_bucket, Key="dsp_config.json")
 content = obj['Body'].read().decode('utf-8')
 dsp_config = json.loads(content)
 

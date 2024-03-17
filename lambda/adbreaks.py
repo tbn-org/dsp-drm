@@ -209,7 +209,7 @@ def inject_adds(media_obj, ad_markers, device_context,vod_ad_config,fast_ad_conf
         markers = ad_markers[0]['markers']
         return_urls=  prepare_video_ad_extention(media_obj, markers, AD_PARAMS.copy())
     else:
-        return_urls=  prepare_video_ad_extention(media_obj, markers, AD_PARAMS.copy())
+        return_urls=  [create_default_ad_extentions(AD_PARAMS.copy())]
 
     for item in return_urls:
 
