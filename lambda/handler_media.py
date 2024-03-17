@@ -93,22 +93,14 @@ def lambda_handler(event, context):
 
     
 
-    if applicaster_context.get("platform", "android").upper() == "ROKU":
-        platform_re= "Connectedtv"
-    elif applicaster_context.get("platform", "android").upper() in ["IOS","IPHONE","IPAD","IPOD"]:
-        platform_re = "mobile"
-    else:
-        platform_re = "Connectedtv"
-    fast_ad_config["platform_ad"] = platform_re
-    vod_ad_config["platform_ad"] = platform_re
-
-
-
-
     for x in dsp_config["app_settings"]:
         if x["app_family_id"] == "meritplus":
             for i in x["devices"]:
                 if i['platform'].lower() == applicaster_context.get("platform", "android").lower():
+                    print("new test here ")
+                    print(i)
+                    print(applicaster_context)
+                    
                     fast_ad_config['app_bundle'] = i["settings"]['bundle_identifier']
                     fast_ad_config['app_store_url'] = i["settings"]['app_store_url']
                     vod_ad_config['app_bundle'] = i["settings"]['bundle_identifier']

@@ -148,6 +148,7 @@ def prepare_video_ad_extention(media_item,markers, ad_parms):
     return video_ads
 
 
+
 def replace_url_values(url, replacement_dict):
     parsed_url = urllib.parse.urlparse(url)
     query_params = dict(urllib.parse.parse_qsl(parsed_url.query))
@@ -216,7 +217,18 @@ def inject_adds(media_obj, ad_markers, device_context,vod_ad_config,fast_ad_conf
 
     if len(ad_markers) > 0:
         markers = ad_markers[0]['markers']
-        return prepare_video_ad_extention(media_obj, markers, AD_PARAMS.copy())
+        return_urls=  prepare_video_ad_extention(media_obj, markers, AD_PARAMS.copy())
     else:
-        return [create_default_ad_extentions(AD_PARAMS.copy())]
+        return_urls=  prepare_video_ad_extention(media_obj, markers, AD_PARAMS.copy())
+
+    print("return urls")
+    print(return_urls)
+
+    for item in return_urls:
+
+        item['ad_url'] = replace_url_values(item['ad_url'], vod_ad_config)
+
+    print("processed")
+    print(return_urls)
+    return return_urls
     
