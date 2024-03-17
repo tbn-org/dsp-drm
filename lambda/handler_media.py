@@ -76,7 +76,8 @@ def lambda_handler(event, context):
     vod_ad_config = {}
 
     # this is needed for preroll.
-    vod_ad_config["vod_tag"] = "yes"
+    vod_ad_config["vod_tag"] = vod_tag
+    fast_ad_config["fast_tag"] = fast_tag
 
     is_live = "no"
     if applicaster_context["is_live"] == "yes":
@@ -84,10 +85,13 @@ def lambda_handler(event, context):
         print(applicaster_context)
 
         fast_tag = "yes"
-        fast_ad_config['ad_tag'] = dsp_config['base_settings']['ad_tag_fast']
+        fast_ad_config["fast_tag"] = fast_tag
+        #fast_ad_config['ad_tag'] = dsp_config['base_settings']['ad_tag_fast']
     else:
         vod_tag = "yes"
-        vod_ad_config['ad_tag'] = dsp_config['base_settings']['ad_tag_vod']
+        vod_ad_config["vod_tag"] = vod_tag
+        
+        #vod_ad_config['ad_tag'] = dsp_config['base_settings']['ad_tag_vod']
 
     # get the type of platform
 
@@ -100,10 +104,10 @@ def lambda_handler(event, context):
                     print("new test here ")
                     print(i)
                     print(applicaster_context)
-                    
-                    fast_ad_config['app_bundle'] = i["settings"]['bundle_identifier']
+
+                    fast_ad_config['app_bundle'] = i["settings"]['app_bundle']
                     fast_ad_config['app_store_url'] = i["settings"]['app_store_url']
-                    vod_ad_config['app_bundle'] = i["settings"]['bundle_identifier']
+                    vod_ad_config['app_bundle'] = i["settings"]['app_bundle']
                     vod_ad_config['app_store_url'] = i["settings"]['app_store_url']
                     if vod_tag == "yes":
                         vod_ad_config['site_id'] = i["settings"]['ad_tag_vod_id']

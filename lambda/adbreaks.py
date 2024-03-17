@@ -221,14 +221,15 @@ def inject_adds(media_obj, ad_markers, device_context,vod_ad_config,fast_ad_conf
     else:
         return_urls=  prepare_video_ad_extention(media_obj, markers, AD_PARAMS.copy())
 
-    print("return urls")
-    print(return_urls)
-
     for item in return_urls:
 
-        item['ad_url'] = replace_url_values(item['ad_url'], vod_ad_config)
+        if item['offset'] == "preroll":
+            item['ad_url'] = replace_url_values(item['ad_url'], vod_ad_config)
+        else: 
+            if fast_ad_config["fast_tag"] == "yes":
+                item['ad_url'] = replace_url_values(item['ad_url'], fast_ad_config)
+            else:
+                item['ad_url'] = replace_url_values(item['ad_url'], vod_ad_config)
 
-    print("processed")
-    print(return_urls)
     return return_urls
     

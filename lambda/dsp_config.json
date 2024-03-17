@@ -1,9 +1,9 @@
 {
 
   "base_settings": 
-      {"ad_tag_fast": "https://pbs.getpublica.com/v1/s2s-hb?site_id=24906&app_name=tbn&min_ad_duration=6&max_ad_duration=60&format=vast&ssai_enabled=1&ssai_vendor=jwplayer&livestream=1&content_id=OZpATbsP&content_cat=IAB1-7&content_channel=TBN&content_network=TBN&content_rating=TV-G&content_title=TBN%20Live&app_bundle=__item-app_bundle__&pod_duration=__session-avail_duration_secs__&ip=__session-client_ip__&ua=__item-ua__&app_store_url=__item-app_store_url__&app_domain=__item-site_page__&height=__item-player_height__&width=__item-player_width__&platform=__item-platform__&lat=__item-lat__&lon=__item-lon__&did=__item-did__&cachebuster=__random-number__",
+      {"ad_tag_fast": "https://pbs.getpublica.com/v1/s2s-hb?site_id=2490",
       "timeout": "1000",   
-      "ad_tag_vod": "https://pbs.getpublica.com/v1/s2s-hb?site_id=24600&ip=__session-client_ip__&app_bundle=com.tbn.live&app_name=tbn&format=vast&ssai_enabled=1&ssai_vendor=jw&APP_STORE_URL=__item-app_store_url__&APP_DOMAIN=__item-site_page__&SITE_NAME=TBN&MIN_AD_DURATION=6&MAX_AD_DURATION=60&UA=__item-device-ua__&HEIGHT=__item-player_height__&WIDTH=__item-player_width__&platform=__item-platform__&LAT=__item-lat__&LON=__item-lon__&LIVESTREAM=1&POD_DURATION=__session-avail_duration_secs__&DID=__item-did__&GENRE=__item-ssai.genre__&CACHEBUSTER=__item-cb__"
+      "ad_tag_vod": "https://pbs.getpublica.com/v1/s2s-hb?site_id=24600"
 }
   ,
   "app_settings": [
@@ -20,7 +20,7 @@
         {
           "platform": "roku",
           "settings": {
-            "bundle_identifier": "4421",
+            "app_bundle": "4421",
             "app_store_url": "https://channelstore.roku.com/details/adee2de8413d590eaadec69d4136d101/tbn-networks-tv",
             "ad_tag_fast_id": "4421",
             "ad_tag_vod_id": "4421"
@@ -29,7 +29,7 @@
         {
           "platform": "amazon_fire_tv",
           "settings": {
-            "bundle_identifier": "4421",
+            "app_bundle": "4421",
             "app_store_url": "https://www.amazon.com/TBN-Watch-Shows-Live-Free/dp/B01CV28J7A",
             "ad_tag_fast_id": "B01CV28J7A",
             "ad_tag_vod_id": "B01CV28J7A"
@@ -38,7 +38,7 @@
         {
           "platform": "ios",
           "settings": {
-            "bundle_identifier": "348738437",
+            "app_bundle": "348738437",
             "app_store_url": "https://apps.apple.com/us/app/tbn-watch-tv-live-on-demand/id348738437",
             "ad_tag_fast_id": "348738437",
             "ad_tag_vod_id": "348738437"
@@ -47,7 +47,7 @@
         {
           "platform": "android",
           "settings": {
-            "bundle_identifier": "tbn_mobile.android",
+            "app_bundle": "tbn_mobile.android",
             "app_store_url": "https://play.google.com/store/apps/details?id=tbn_mobile.android",
             "ad_tag_fast_id": "tbn_mobile.android",
             "ad_tag_vod_id": "tbn_mobile.android"
@@ -56,7 +56,7 @@
         {
           "platform": "android_tv",
           "settings": {
-            "bundle_identifier": "tbn_mobile.android",
+            "app_bundle": "tbn_mobile.android",
             "app_store_url": "https://play.google.com/store/apps/details?id=tbn_mobile.android",
             "ad_tag_fast_id": "tbn_mobile.android",
             "ad_tag_vod_id": "tbn_mobile.android"
@@ -65,7 +65,7 @@
         {
           "platform": "tvos",
           "settings": {
-            "bundle_identifier": "348738437",
+            "app_bundle": "348738437",
             "app_store_url": "https://apps.apple.com/us/app/tbn-watch-tv-live-on-demand/id348738437",
             "ad_tag_fast_id": "348738437",
             "ad_tag_vod_id": "348738437"
@@ -74,7 +74,7 @@
         {
           "platform": "samsung_tv",
           "settings": {
-            "bundle_identifier": "4421",
+            "app_bundle": "4421",
             "app_store_url": "",
             "ad_tag_fast_id": "38555",
             "ad_tag_vod_id": "38556"
@@ -83,7 +83,7 @@
         {
           "platform": "lg_tv",
           "settings": {
-            "bundle_identifier": "lg.app.bundle",
+            "app_bundle": "lg.app.bundle",
             "app_store_url": "lg.tv/app/id/123",
             "ad_tag_fast_id": "38562",
             "ad_tag_vod_id": "38561"
