@@ -79,7 +79,10 @@ def lambda_handler(event, context):
     vod_ad_config["vod_tag"] = "yes"
 
     is_live = "no"
-    if "is_live" in applicaster_context:
+    if applicaster_context["is_live"] == "yes":
+        print("is_live?")
+        print(applicaster_context)
+
         fast_tag = "yes"
         fast_ad_config['ad_tag'] = dsp_config['base_settings']['ad_tag_fast']
     else:
@@ -111,7 +114,7 @@ def lambda_handler(event, context):
                     vod_ad_config['app_bundle'] = i["settings"]['bundle_identifier']
                     vod_ad_config['app_store_url'] = i["settings"]['app_store_url']
                     if vod_tag == "yes":
-                        fast_ad_config['site_id'] = i["settings"]['ad_tag_vod_id']
+                        vod_ad_config['site_id'] = i["settings"]['ad_tag_vod_id']
                     if fast_tag == "yes":
                         fast_ad_config['site_id'] = i["settings"]['ad_tag_fast_id']
                     vod_ad_config['site_id'] = i["settings"]['ad_tag_vod_id']
@@ -132,7 +135,7 @@ def lambda_handler(event, context):
                        "country": country,
                        "type_override": type_override,
                        "vod_ad_config": vod_ad_config,
-                       "ad_config": fast_ad_config
+                       "fast_ad_config": fast_ad_config
                        }
 
     applicaster_feed = create_media_feed(media_feed_args)

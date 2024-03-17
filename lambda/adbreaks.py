@@ -87,7 +87,11 @@ def prepare_video_ad_extention(media_item,markers, ad_parms):
     has_preroll = False
     # episode_duration = episode["extensions"]["duration"]
     for marker in markers:
+        print(marker)
+        print("marker")
         offset = marker["breaktime"]
+        print(offset)
+
         break_mode = marker["break_mode"]
         ad_slot = marker["slot"]
         is_live_stream = False
@@ -98,6 +102,7 @@ def prepare_video_ad_extention(media_item,markers, ad_parms):
 
         ad_Service_url =  create_publica_url(ad_parms, ad_service_base_url)
         if offset == 0:
+            print("inside if ")
             offset = "preroll"
             custom5 = "preroll"
             ad_parms = ad_parms
@@ -112,7 +117,11 @@ def prepare_video_ad_extention(media_item,markers, ad_parms):
             })
             has_preroll = True
         else:
+            print("insidie else ")
             ad_position = media_duration- float(offset)
+            print(media_duration)
+            print(offset)
+            print(ad_position)
             # skip the ads towords th end of the video
             if ad_position >= 5:
                 ad_parms = ad_parms
@@ -127,20 +136,39 @@ def prepare_video_ad_extention(media_item,markers, ad_parms):
                     "ad_url": AD_URL
                 })
     if len(video_ads) <= 0:
+        print("inside first")
         ad_parms = ad_parms
         return [create_default_ad_extentions(ad_parms)]
 
     if not has_preroll:
+        print("inside second")
         ad_parms = ad_parms
         video_ads.insert(0, create_default_ad_extentions(ad_parms))
 
     return video_ads
 
 
-def inject_adds(media_obj, ad_markers, device_context,vod_ad_config,fast_ad_config)):
+def replace_url_values(url, replacement_dict):
+    parsed_url = urllib.parse.urlparse(url)
+    query_params = dict(urllib.parse.parse_qsl(parsed_url.query))
 
-    print(vod_ad_config,fast_ad_config)
+    for key in replacement_dict:
+        if key in query_params:
+            query_params[key] = replacement_dict[key]
+    new_query = urllib.parse.urlencode(query_params)
+    new_url = parsed_url._replace(query= new_query).geturl()
+    return new_url
 
+
+
+def inject_adds(media_obj, ad_markers, device_context,vod_ad_config,fast_ad_config):
+
+    print("vod_ad_config")
+    print(vod_ad_config)
+
+    print("break")
+    print("fast_ad_config")
+    print(fast_ad_config)
 
     platform_re = device_context.get("platform", "mobile")
     platform_app_context = device_context.get("platform", "mobile")
@@ -184,10 +212,8 @@ def inject_adds(media_obj, ad_markers, device_context,vod_ad_config,fast_ad_conf
     if media_obj.get("title") in ["Yippee Kids TV" , "Smile"]:
 
         AD_PARAMS["coppa"] = 1
-    
-    # media_id = media_obj['id']
-    # ad_markers = ad_markers["markers"]
-    # if media_id in ad_markers:
+        
+
     if len(ad_markers) > 0:
         markers = ad_markers[0]['markers']
         return prepare_video_ad_extention(media_obj, markers, AD_PARAMS.copy())

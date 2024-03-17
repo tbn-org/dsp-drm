@@ -317,7 +317,7 @@ def create_media_feed(args):
     geo_location = args.get("country", "")  
     override_type = args.get("type_override", None)  
     vod_ad_config = args.get("vod_ad_config")
-    ad_config = args.get("ad_config")
+    fast_ad_config = args.get("fast_ad_config")
 
     playlist = get_jwplayer_media(media_id)
     if playlist == "UNKMEDIAID" :
@@ -337,7 +337,7 @@ def create_media_feed(args):
             filter_cleanup_feed,
             filter_override_type),
         (
-            [ad_breaks_table, device_context],
+            [ad_breaks_table, device_context,vod_ad_config,fast_ad_config],
             [],
             [],
             [jwplayer_secret],
