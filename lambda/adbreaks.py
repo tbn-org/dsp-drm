@@ -149,13 +149,11 @@ def replace_url_values(url, replacement_dict):
     parsed_url = urllib.parse.urlparse(url)
     query_params = dict(urllib.parse.parse_qsl(parsed_url.query))
 
-    for key in replacement_dict:
-        if key in query_params:
-            query_params[key] = replacement_dict[key]
-    new_query = urllib.parse.urlencode(query_params)
-    new_url = parsed_url._replace(query= new_query).geturl()
-    return new_url
+    query_params.update(replacement_dict)
 
+    new_query = urllib.parse.urlencode(query_params)
+    new_url = parsed_url._replace(query=new_query).geturl()
+    return new_url
 
 
 def inject_adds(media_obj, ad_markers, device_context,vod_ad_config,fast_ad_config):
