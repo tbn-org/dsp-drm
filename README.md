@@ -1,10 +1,13 @@
 # DSP to serve feeds for applicaster
 
-The DSP API provides the folowing APIS
+The MSM API provides the folowing APIS
 
 1. playlist
 2. Media
 3. appconfig
+4. Account
+5. Search
+
 
 # Building a deploying using cdk
 
@@ -34,3 +37,5 @@ https://tbn-dsp-api-prod.tbncloud.com/v1/media?mediaid=DpkE3yXS&disablePlayNext=
 # API DOCS :
 
 ![Alt text](docs/DSP2.0.png)
+
+https://tbntv.atlassian.net/wiki/spaces/Meritplus/pages/107675667/Production+Apps
