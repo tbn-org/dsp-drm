@@ -162,22 +162,9 @@ def inject_adds(media_obj, ad_markers, device_context,vod_ad_config,fast_ad_conf
     platform_re = device_context.get("platform", "mobile")
     platform_app_context = device_context.get("platform", "mobile")
 
-    if platform_re.upper() == "ROKU":
-        platform_re= "Connectedtv"
-    elif platform_re.upper() in ["IOS","IPHONE","IPAD","IPOD"]:
-        platform_re = "mobile"
-    else:
-        platform_re = "Connectedtv"
+    platform_re = "Connectedtv"
 
-
-    if platform_app_context.upper() == "ROKU":
-        app_bundle = "4421"
-    elif platform_app_context.upper() in ["IOS","IPHONE","IPAD","IPOD","TVOS"]:
-        app_bundle = "348738437"
-    elif "AMAZON_FIRE_TV" in platform_app_context.upper():
-        app_bundle = "B01CV28J7A"
-    else:
-        app_bundle = "tbn_mobile.android"
+    app_bundle = "tbn_mobile.android"
 
     AD_PARAMS = {
         "site_id":24600,
@@ -198,6 +185,9 @@ def inject_adds(media_obj, ad_markers, device_context,vod_ad_config,fast_ad_conf
     }
     # logger.info("video extension with macros: %s", AD_PARAMS)
 
+    # may go to dsp config in future 
+    #MSM does not have coppa 
+    
     if media_obj.get("title") in ["Yippee Kids TV" , "Smile"]:
 
         AD_PARAMS["coppa"] = 1

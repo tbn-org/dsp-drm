@@ -26,8 +26,6 @@ logging.basicConfig(
 configure_structured_log()
 
 logger = structlog.get_logger(__name__)
-
-
 # table name from ENV
 AD_MARKERS_TABLE = os.environ['AD_MARKERS_TABLE']
 FEED_LINK_URL = os.environ['FEED_LINK_URL']
@@ -35,20 +33,13 @@ JWPLAYER_API_KEY = os.environ['JWPLAYER_API_KEY']
 
 dsp_config_bucket = os.environ['S3_BUCKET_NAME']
 
-
-
-
 env = os.environ['env']
-
 # DSP_DRM_SECRET = json.loads(parameters.get_secret("DSP_DRM_SECRET"))
-
-
 s3 = boto3.client('s3')
 
 obj = s3.get_object(Bucket=dsp_config_bucket, Key="dsp_config.json")
 content = obj['Body'].read().decode('utf-8')
 dsp_config = json.loads(content)
-
 
 def lambda_handler(event, context):
     logger.info("event: %s", event)
@@ -77,11 +68,9 @@ def lambda_handler(event, context):
     app_family_id = "meritplus"
     fast_ad_config = {}
     vod_ad_config = {}
-
     # this is needed for preroll.
     vod_ad_config["vod_tag"] = vod_tag
     fast_ad_config["fast_tag"] = fast_tag
-
     is_live = "no"
     if applicaster_context["is_live"] == "yes":
 
@@ -95,11 +84,10 @@ def lambda_handler(event, context):
         #vod_ad_config['ad_tag'] = dsp_config['base_settings']['ad_tag_vod']
 
     # get the type of platform
-
-    
-
     for x in dsp_config["app_settings"]:
         if x["app_family_id"] == "meritplus":
+            vod_ad_config['site_id'] = x["global_settings"]['vod_site_id']
+            fast_ad_config['site_id'] = x["global_settings"]['fast_site_id']
             for i in x["devices"]:
                 if i['platform'].lower() == applicaster_context.get("platform", "android").lower():
 
@@ -107,6 +95,7 @@ def lambda_handler(event, context):
                     fast_ad_config['app_store_url'] = i["settings"]['app_store_url']
                     vod_ad_config['app_bundle'] = i["settings"]['app_bundle']
                     vod_ad_config['app_store_url'] = i["settings"]['app_store_url']
+                    # have a logic to reatin default if blank tag is present in the settings dict. 
                     if vod_tag == "yes":
                         vod_ad_config['site_id'] = i["settings"]['ad_tag_vod_id']
                     if fast_tag == "yes":

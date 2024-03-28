@@ -1,28 +1,28 @@
 {
 
   "base_settings": 
-      {"ad_tag_fast": "https://pbs.getpublica.com/v1/s2s-hb?site_id=2490",
-      "timeout": "1000",   
-      "ad_tag_vod": "https://pbs.getpublica.com/v1/s2s-hb?site_id=24600"
+      {"ad_tag_fast": "https://pbs.getpublica.com/v1/s2s-hb?",
+      "timeout": "1000",
+      "ad_tag_vod": "https://pbs.getpublica.com/v1/s2s-hb?"
 }
   ,
   "app_settings": [
     {
-
       "app_family_id": "meritplus",
-      "global_settings": [
+      "global_settings": 
         {
+          "fast_site_id":"24906",
+          "vod_site_id":"24600",
           "content_channel": "",
           "content_network": "Merit Plus"
         }
-      ],
+      ,
       "devices": [
         {
           "platform": "roku",
           "settings": {
-            "app_bundle": "com.meritplus.roku",
+            "app_bundle": "747588",
             "app_store_url": "https://channelstore.roku.com/details/adee2de8413d590eaadec69d4136d101/tbn-networks-tv",
-            "ad_tag_fast_id": "747588",
             "ad_tag_vod_id": "747588"
           }
         },
@@ -31,7 +31,6 @@
           "settings": {
             "app_bundle": "4421",
             "app_store_url": "https://www.amazon.com/TBN-Watch-Shows-Live-Free/dp/B01CV28J7A",
-            "ad_tag_fast_id": "B01CV28J7A",
             "ad_tag_vod_id": "B01CV28J7A"
           }
         },
@@ -40,7 +39,6 @@
           "settings": {
             "app_bundle": "com.meritplus.apple",
             "app_store_url": "https://apps.apple.com/us/app/tbn-watch-tv-live-on-demand/id=6477886535",
-            "ad_tag_fast_id": "6477886535",
             "ad_tag_vod_id": "6477886535"
           }
         },
@@ -48,8 +46,7 @@
           "platform": "android",
           "settings": {
             "app_bundle": "com.meritplus.android",
-            "app_store_url": "https://play.google.com/store/apps/details?id=tbn_mobile.android",
-            "ad_tag_fast_id": "tbn_mobile.android",
+            "app_store_url": "https://play.google.com/store/apps/details?id=com.meritplus.android",
             "ad_tag_vod_id": "tbn_mobile.android"
           }
         },
@@ -57,8 +54,7 @@
           "platform": "android_tv",
           "settings": {
             "app_bundle": "com.meritplus.android",
-            "app_store_url": "https://play.google.com/store/apps/details?id=tbn_mobile.android",
-            "ad_tag_fast_id": "tbn_mobile.android",
+            "app_store_url": "https://play.google.com/store/apps/details?id=com.meritplus.android",
             "ad_tag_vod_id": "tbn_mobile.android"
           }
         },
@@ -67,7 +63,6 @@
           "settings": {
             "app_bundle": "com.meritplus.apple",
             "app_store_url": "https://apps.apple.com/us/app/tbn-watch-tv-live-on-demand/id=6477886535",
-            "ad_tag_fast_id": "6477886535",
             "ad_tag_vod_id": "6477886535"
           }
         },
@@ -75,8 +70,7 @@
           "platform": "samsung_tv",
           "settings": {
             "app_bundle": "com.meritplus.samsung",
-            "app_store_url": "",
-            "ad_tag_fast_id": "38555",
+            "app_store_url": "https://www.samsung.com/us/appstore/app/G3202312033235",
             "ad_tag_vod_id": "38556"
           }
         },
@@ -85,11 +79,11 @@
           "settings": {
             "app_bundle": "com.meritplus.lg",
             "app_store_url": "lg.tv/app/id/123",
-            "ad_tag_fast_id": "38562",
             "ad_tag_vod_id": "38561"
           }
         }
       ]
+
     }
   ]
 }
