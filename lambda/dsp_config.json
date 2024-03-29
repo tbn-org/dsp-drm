@@ -8,12 +8,13 @@
   ,
   "app_settings": [
     {
+
       "app_family_id": "meritplus",
       "global_settings": 
         {
-          "fast_site_id":"24906",
-          "vod_site_id":"24600",
-          "content_channel": "",
+          "fast_site_id":"38572",
+          "vod_site_id":"38556",
+          "content_channel": "Merit Plus",
           "content_network": "Merit Plus"
         }
       ,
@@ -22,24 +23,24 @@
           "platform": "roku",
           "settings": {
             "app_bundle": "747588",
-            "app_store_url": "https://channelstore.roku.com/details/adee2de8413d590eaadec69d4136d101/tbn-networks-tv",
-            "ad_tag_vod_id": "747588"
+            "app_store_url": "",
+            "ad_tag_vod_id": "38556"
           }
         },
         {
           "platform": "amazon_fire_tv",
           "settings": {
-            "app_bundle": "4421",
-            "app_store_url": "https://www.amazon.com/TBN-Watch-Shows-Live-Free/dp/B01CV28J7A",
-            "ad_tag_vod_id": "B01CV28J7A"
+            "app_bundle": "B0CYHJY8WN",
+            "app_store_url": "",
+            "ad_tag_vod_id": "38557"
           }
         },
         {
           "platform": "ios",
           "settings": {
-            "app_bundle": "com.meritplus.apple",
-            "app_store_url": "https://apps.apple.com/us/app/tbn-watch-tv-live-on-demand/id=6477886535",
-            "ad_tag_vod_id": "6477886535"
+            "app_bundle": "6477886535",
+            "app_store_url": "",
+            "ad_tag_vod_id": "38567"
           }
         },
         {
@@ -47,7 +48,7 @@
           "settings": {
             "app_bundle": "com.meritplus.android",
             "app_store_url": "https://play.google.com/store/apps/details?id=com.meritplus.android",
-            "ad_tag_vod_id": "tbn_mobile.android"
+            "ad_tag_vod_id": "38565"
           }
         },
         {
@@ -55,30 +56,30 @@
           "settings": {
             "app_bundle": "com.meritplus.android",
             "app_store_url": "https://play.google.com/store/apps/details?id=com.meritplus.android",
-            "ad_tag_vod_id": "tbn_mobile.android"
+            "ad_tag_vod_id": "38569"
           }
         },
         {
           "platform": "tvos",
           "settings": {
-            "app_bundle": "com.meritplus.apple",
-            "app_store_url": "https://apps.apple.com/us/app/tbn-watch-tv-live-on-demand/id=6477886535",
-            "ad_tag_vod_id": "6477886535"
+            "app_bundle": "6477886535",
+            "app_store_url": "",
+            "ad_tag_vod_id": "38559"
           }
         },
         {
           "platform": "samsung_tv",
           "settings": {
-            "app_bundle": "com.meritplus.samsung",
+            "app_bundle": "G3202312033235",
             "app_store_url": "https://www.samsung.com/us/appstore/app/G3202312033235",
-            "ad_tag_vod_id": "38556"
+            "ad_tag_vod_id": "38563"
           }
         },
         {
           "platform": "lg_tv",
           "settings": {
             "app_bundle": "com.meritplus.lg",
-            "app_store_url": "lg.tv/app/id/123",
+            "app_store_url": "",
             "ad_tag_vod_id": "38561"
           }
         }
