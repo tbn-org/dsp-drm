@@ -160,6 +160,9 @@ def inject_adds(media_obj, ad_markers, device_context,vod_ad_config,fast_ad_conf
 
     print("check one two")
     print(media_obj)
+    
+    print(vod_ad_config)
+    print(fast_ad_config)
 
 
     platform_re = device_context.get("platform", "mobile")
