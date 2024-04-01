@@ -23,7 +23,7 @@
           "platform": "roku",
           "settings": {
             "app_bundle": "747588",
-            "app_store_url": "https://channelstore.roku.com/details/661facb424e3eb121103c578e1792ad5/merit",
+            "app_store_url": "",
             "ad_tag_vod_id": "38556"
           }
         },
@@ -31,7 +31,7 @@
           "platform": "amazon_fire_tv",
           "settings": {
             "app_bundle": "B0CYHJY8WN",
-            "app_store_url": "https://www.amazon.com/dp/B0CYHJY8WN",
+            "app_store_url": "",
             "ad_tag_vod_id": "38557"
           }
         },
@@ -39,7 +39,7 @@
           "platform": "ios",
           "settings": {
             "app_bundle": "6477886535",
-            "app_store_url": "https://apps.apple.com/us/app/merit/id6477886535?platform=iphone",
+            "app_store_url": "",
             "ad_tag_vod_id": "38567"
           }
         },
@@ -63,7 +63,7 @@
           "platform": "tvos",
           "settings": {
             "app_bundle": "6477886535",
-            "app_store_url": "https://apps.apple.com/us/app/merit/id6477886535?platform=appleTV",
+            "app_store_url": "",
             "ad_tag_vod_id": "38559"
           }
         },
