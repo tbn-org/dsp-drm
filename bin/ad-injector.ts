@@ -44,7 +44,7 @@ new DspInfraStack(app, "dsp-drm-infra-stack-prod", {
   adBreaksTableArn: "arn:aws:dynamodb:us-west-2:722984510186:table/tbn-dsp-adbreaks",
   // Secrets manager Secret name
   jwplayerSecretName: "JWP_SECRET",
-  cachingTTL:1800,
+  cachingTTL:300,
   jwProperty:"",
   env: {
     account: process.env.CDK_DEPLOY_ACCOUNT || process.env.CDK_DEFAULT_ACCOUNT,
