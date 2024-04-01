@@ -156,7 +156,10 @@ def replace_url_values(url, replacement_dict):
     return new_url
 
 
-def inject_adds(media_obj, ad_markers, device_context,vod_ad_config,fast_ad_config):
+def inject_adds(media_obj, ad_markers, device_context,vod_ad_config,fast_ad_config,common_ad_config):
+
+    print("check one two")
+    print(media_obj)
 
 
     platform_re = device_context.get("platform", "mobile")
@@ -201,13 +204,26 @@ def inject_adds(media_obj, ad_markers, device_context,vod_ad_config,fast_ad_conf
 
     for item in return_urls:
 
+        vod_ad_config_copy = vod_ad_config.copy()
+        fast_ad_config_copy = fast_ad_config.copy()
+
+
         if item['offset'] == "preroll":
-            item['ad_url'] = replace_url_values(item['ad_url'], vod_ad_config)
+            if "vod_tag" in vod_ad_config_copy:
+                del vod_ad_config_copy["vod_tag"]
+            merged_dict = {**vod_ad_config_copy, **common_ad_config}
+            item['ad_url'] = replace_url_values(item['ad_url'], merged_dict)
         else: 
             if fast_ad_config["fast_tag"] == "yes":
-                item['ad_url'] = replace_url_values(item['ad_url'], fast_ad_config)
+                if "fast_tag" in fast_ad_config_copy:
+                    del vod_ad_config_copy["vod_tag"]
+                merged_dict = {**fast_ad_config, **common_ad_config}                    
+                item['ad_url'] = replace_url_values(item['ad_url'], merged_dict)
             else:
-                item['ad_url'] = replace_url_values(item['ad_url'], vod_ad_config)
+                if "vod_tag" in vod_ad_config_copy:
+                    del vod_ad_config_copy["vod_tag"]
+                merged_dict = {**vod_ad_config_copy, **common_ad_config}
+                item['ad_url'] = replace_url_values(item['ad_url'], merged_dict)
 
     return return_urls
     

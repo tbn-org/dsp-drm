@@ -68,6 +68,8 @@ def lambda_handler(event, context):
     app_family_id = "meritplus"
     fast_ad_config = {}
     vod_ad_config = {}
+    common_ad_config = {} 
+
     # this is needed for preroll.
     vod_ad_config["vod_tag"] = vod_tag
     fast_ad_config["fast_tag"] = fast_tag
@@ -76,18 +78,27 @@ def lambda_handler(event, context):
 
         fast_tag = "yes"
         fast_ad_config["fast_tag"] = fast_tag
-        #fast_ad_config['ad_tag'] = dsp_config['base_settings']['ad_tag_fast']
+        fast_ad_config['base_url'] = dsp_config['base_settings']['ad_tag_fast']
     else:
         vod_tag = "yes"
         vod_ad_config["vod_tag"] = vod_tag
         
-        #vod_ad_config['ad_tag'] = dsp_config['base_settings']['ad_tag_vod']
+        vod_ad_config['base_url'] = dsp_config['base_settings']['ad_tag_vod']
 
     # get the type of platform
     for x in dsp_config["app_settings"]:
         if x["app_family_id"] == "meritplus":
-            vod_ad_config['site_id'] = x["global_settings"]['vod_site_id']
-            fast_ad_config['site_id'] = x["global_settings"]['fast_site_id']
+            vod_ad_config["site_id"] = x.get("global_settings", {}).get('vod_site_id', '')
+            fast_ad_config["site_id"] = x.get("global_settings", {}).get('fast_site_id', '')
+            common_ad_config["min_ad_duration"] = x.get("global_settings", {}).get('fast_site_id', '')
+            common_ad_config["max_ad_duration"] = x.get("global_settings", {}).get('max_ad_duration', '')
+            common_ad_config["format"] = x.get("global_settings", {}).get('format', '')
+            common_ad_config["content_cat"] = x.get("global_settings", {}).get('content_cat', '')
+            common_ad_config["content_genre"] = x.get("global_settings", {}).get('content_genre', '')
+            common_ad_config["content_rating"] = x.get("global_settings", {}).get('content_rating', '')
+            common_ad_config["content_channel"] = x.get("global_settings", {}).get('content_channel', '')
+            common_ad_config["content_network"] = x.get("global_settings", {}).get('content_network', '')
+
             for i in x["devices"]:
                 if i['platform'].lower() == applicaster_context.get("platform", "android").lower():
 
@@ -118,7 +129,8 @@ def lambda_handler(event, context):
                        "country": country,
                        "type_override": type_override,
                        "vod_ad_config": vod_ad_config,
-                       "fast_ad_config": fast_ad_config
+                       "fast_ad_config": fast_ad_config,
+                       "common_ad_config" : common_ad_config
                        }
 
     applicaster_feed = create_media_feed(media_feed_args)

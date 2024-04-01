@@ -201,7 +201,7 @@ def filter_geo_location(feed_entry, geo_location):
 
 
 # filter to inject video ads based on the ad breaks database
-def filter_inject_ads(feed_entry, table_name, device_context,vod_ad_config,fast_ad_config):
+def filter_inject_ads(feed_entry, table_name, device_context,vod_ad_config,fast_ad_config,common_ad_config):
     logger.info("reading adbreaks from table %s", table_name)
     #handle the prod failure due to missing tags. 
     try:
@@ -221,7 +221,7 @@ def filter_inject_ads(feed_entry, table_name, device_context,vod_ad_config,fast_
         return feed_entry
     media_id = feed_entry["id"]
     ad_markers = fetch_ad_markers_by_mediaid(media_id, table_name)
-    video_ads = inject_adds(feed_entry, ad_markers, device_context,vod_ad_config,fast_ad_config)
+    video_ads = inject_adds(feed_entry, ad_markers, device_context,vod_ad_config,fast_ad_config,common_ad_config)
 
 
     feed_entry["extensions"]["video_ads"] = video_ads
