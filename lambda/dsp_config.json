@@ -1,7 +1,7 @@
 {
 
   "base_settings": 
-      {"ad_tag_fast": "https://pbs.getpublica.com/v1/s2s-hb?&min_ad_duration=6&max_ad_duration=60&format=vast&ssai_enabled=1&ssai_vendor=jwplayer&livestream=1",
+      {"ad_tag_fast": "https://pbs.getpublica.com/v1/s2s-hb?",
       "timeout": "1000",
       "ad_tag_vod": "https://pbs.getpublica.com/v1/s2s-hb?"
 }
