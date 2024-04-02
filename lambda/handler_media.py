@@ -90,7 +90,7 @@ def lambda_handler(event, context):
         if x["app_family_id"] == "meritplus":
             vod_ad_config["site_id"] = x.get("global_settings", {}).get('vod_site_id', '')
             fast_ad_config["site_id"] = x.get("global_settings", {}).get('fast_site_id', '')
-            common_ad_config["min_ad_duration"] = x.get("global_settings", {}).get('fast_site_id', '')
+            common_ad_config["min_ad_duration"] = x.get("global_settings", {}).get('min_ad_duration', '')
             common_ad_config["max_ad_duration"] = x.get("global_settings", {}).get('max_ad_duration', '')
             common_ad_config["format"] = x.get("global_settings", {}).get('format', '')
             common_ad_config["content_cat"] = x.get("global_settings", {}).get('content_cat', '')
