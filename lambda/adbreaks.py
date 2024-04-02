@@ -174,12 +174,10 @@ def inject_adds(media_obj, ad_markers, device_context,vod_ad_config,fast_ad_conf
     platform_app_context = device_context.get("platform", "mobile")
     platform_re = "Connectedtv"
     app_bundle = "tbn_mobile.android"
-
-
+    print(device_context)
 
     AD_PARAMS = {
         "site_id" : "2",
-        "ua": device_context.get("user_agent", "Mozilla/5.0 (Linux; Android 13"),
         "ua": device_context.get("user_agent", "Mozilla/5.0 (Linux; Android 13"),
         "app_bundle": app_bundle,
         "content_title": media_obj.get("title"), 
@@ -189,13 +187,18 @@ def inject_adds(media_obj, ad_markers, device_context,vod_ad_config,fast_ad_conf
         "custom_5": "preroll",
         "device_type": platform_re, 
         "player_height": device_context.get("device_height"),
-        "player_width": device_context.get("device_width")
+        
+        "did": device_context.get("advertisingidentifier"),
+
+
+        "player_width": device_context.get("device_width"),
+        "coppa": 0
     }
     # logger.info("video extension with macros: %s", AD_PARAMS)
 
 
-    common_ad_config["content_genre"]  = media_obj.get("extensions", {}).get("genre")
-    common_ad_config["content_rating"]  = media_obj.get("extensions", {}).get("rating")
+    common_ad_config["content_genre"]  = media_obj.get("extensions", {}).get("genre",common_ad_config["content_genre"] )
+    common_ad_config["content_rating"]  = media_obj.get("extensions", {}).get("rating",common_ad_config["content_rating"] )
 
 
     # may go to dsp config in future 
