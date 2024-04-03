@@ -48,6 +48,8 @@ def lambda_handler(event, context):
 
     clear_contextvars()
     query_params = event['queryStringParameters']
+    print("test test test")
+    print(event)
     applicaster_context = get_applicaster_context(event)
     cloudfront_context = get_cloud_front_context(event)
     country, city, timezone = cloudfront_context[

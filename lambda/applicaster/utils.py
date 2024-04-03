@@ -180,7 +180,7 @@ def get_applicaster_context(event):
     path = event['path']
     bundle_identifier = ''
     platform = ''
-    app_name = 'tbn.tv'
+    app_name = 'Merit Plus'
     user_agent = 'Mozilla/5.0 (Windows NT 10.'
     device_type = ''
     device_height=''

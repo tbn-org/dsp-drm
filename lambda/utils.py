@@ -14,7 +14,7 @@ def get_applicaster_context(event):
 
     query_params = event['queryStringParameters']
     path = event['path']
-    app_name = 'tbn.tv'
+    app_name = 'Merit Plus'
     user_agent = 'Mozilla/5.0 (Windows NT 10.'
     language = 'en'
     is_live = "no"
