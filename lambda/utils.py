@@ -107,16 +107,21 @@ def get_applicaster_context(event):
 
 def get_cloud_front_context(event):
     if "headers" not in event:
-        return {"country":None, "city":None, "timezone":None, "latitude":None, "longitude":None}
+        return {"country":None, "city":None, "timezone":None, "latitude":None, "longitude":None,"ip_address":None}
 
     headers = event['headers']
+
+
+    x_forwarded_for = headers.get('X-Forwarded-For', '')
+    ip_address = x_forwarded_for.split(',')[0].strip()
+
     country = headers.get('CloudFront-Viewer-Country', None)
     city= headers.get('CloudFront-Viewer-City', None)
     timezone = headers.get('CloudFront-Viewer-Timezone', None)
     latitude = headers.get('CloudFront-Viewer-Latitude', None)
     longitude = headers.get('CloudFront-Viewer-Longitude', None)
     
-    return {"country":country, "city":city, "timezone":timezone, "latitude":latitude, "longitude":longitude}
+    return {"ip_address":ip_address,"country":country, "city":city, "timezone":timezone, "latitude":latitude, "longitude":longitude}
 
 def create_struc_log_context(event):
     cloudfront_context =  get_cloud_front_context(event)

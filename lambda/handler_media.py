@@ -48,8 +48,7 @@ def lambda_handler(event, context):
 
     clear_contextvars()
     query_params = event['queryStringParameters']
-    print("test test test")
-    print(event)
+
     applicaster_context = get_applicaster_context(event)
     cloudfront_context = get_cloud_front_context(event)
     country, city, timezone = cloudfront_context[
@@ -71,6 +70,7 @@ def lambda_handler(event, context):
     fast_ad_config = {}
     vod_ad_config = {}
     common_ad_config = {} 
+    common_ad_config["ip"] = cloudfront_context["ip_address"]
 
     # this is needed for preroll.
     vod_ad_config["vod_tag"] = vod_tag
