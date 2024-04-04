@@ -6,9 +6,13 @@ logger = structlog.get_logger(__name__)
 
 
 def decode_request_context(encoded_string):
-    # Fix incorrect padding in decode https://gist.github.com/perrygeo/ee7c65bb1541ff6ac770
-    decoded_string = base64.b64decode(encoded_string+'==')
+    # Replace URL-safe base64 characters with standard base64 characters
+    encoded_string = encoded_string.replace('-', '+').replace('_', '/')
+    # Add padding to the encoded string if necessary
+    padding = '=' * ((4 - len(encoded_string) % 4) % 4)
+    decoded_string = base64.b64decode(encoded_string + padding)
     return json.loads(decoded_string)
+
 
 def get_applicaster_context(event):
 
