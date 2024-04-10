@@ -54,7 +54,21 @@ def lambda_handler(event, context):
     country, city, timezone = cloudfront_context[
         "country"], cloudfront_context["city"], cloudfront_context["timezone"]
     type_override = None
+    
 
+    gdpr_countries = [
+    "AT", "BE", "BG", "CY", "CZ",
+    "DK", "EE", "FI", "FR", "DE",
+    "GR", "HU", "IE", "IT", "LV",
+    "LT", "LU", "MT", "NL", "PL",
+    "PT", "RO", "SK", "SI", "ES",
+    "SE", "IS", "LI", "NO"]
+
+    if country in gdpr_countries:
+        gdpr = 1
+    else:
+        gdpr = 0
+    
     structlog.contextvars.clear_contextvars()
     struc_log_context = create_struc_log_context(event)
     structlog.contextvars.bind_contextvars(**struc_log_context)
@@ -71,6 +85,7 @@ def lambda_handler(event, context):
     vod_ad_config = {}
     common_ad_config = {} 
     common_ad_config["ip"] = cloudfront_context["ip_address"]
+    common_ad_config["gdpr"] = gdpr
 
     # this is needed for preroll.
     vod_ad_config["vod_tag"] = vod_tag
