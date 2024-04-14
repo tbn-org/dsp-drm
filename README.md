@@ -41,7 +41,7 @@ https://tbn-dsp-api-prod.tbncloud.com/v1/appconfig?configid=1noqgj6q&index=0&pag
 https://tbn-dsp-api-prod.tbncloud.com/v1/search?playlistid=h0lwa1JX&=Episodes&page_limit=50&page_offset=1&search=jesus
 https://tbn-dsp-api-prod.tbncloud.com/v1/media?mediaid=DpkE3yXS&disablePlayNext=false
 
-
+https://tbn-dsp-api-prod.tbncloud.com/v1/playlist?playlistid=jryHEWXj&page_limit=40&page_offset=1
 
 
 MSM DSP endpoint in Prod is 

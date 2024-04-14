@@ -174,7 +174,6 @@ def inject_adds(media_obj, ad_markers, device_context,vod_ad_config,fast_ad_conf
     platform_app_context = device_context.get("platform", "mobile")
     platform_re = "Connectedtv"
     app_bundle = "tbn_mobile.android"
-    print(device_context)
 
     AD_PARAMS = {
         "site_id" : "2",
