@@ -39,6 +39,7 @@ def decode_request_context(encoded_string):
     decoded_string = base64.b64decode(encoded_string+'==')
     return json.loads(decoded_string)
 
+
 def lambda_handler(event, context):
     logger.info("lambda handler event:%s", event)
     query_params = event['queryStringParameters']

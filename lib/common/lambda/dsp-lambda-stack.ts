@@ -50,7 +50,7 @@ export class LambdaStack extends Stack {
       code: lambda.Code.fromAsset(path.join(__dirname, "../../../lambda/"), {
         bundling: {
           image: lambda.Runtime.PYTHON_3_9.bundlingImage,
-          command: ["bash", "-c", "pip install -r requirements.txt -t /asset-output && cp -au . /asset-output"],
+          command: ["bash", "-c", "pip install -r requirements.txt -t /asset-output && cp -au . /asset-output  && chmod -R 755 /asset-output"],
         },
       }),
       handler: "handler_playlist.lambda_handler", // file is "hello", function is "handler"
@@ -65,7 +65,7 @@ export class LambdaStack extends Stack {
       code: lambda.Code.fromAsset(path.join(__dirname, "../../../lambda/"), {
         bundling: {
           image: lambda.Runtime.PYTHON_3_9.bundlingImage,
-          command: ["bash", "-c", "pip install -r requirements.txt -t /asset-output && cp -au . /asset-output"],
+          command: ["bash", "-c", "pip install -r requirements.txt -t /asset-output && cp -au . /asset-output  && chmod -R 755 /asset-output"],
         },
       }),
       handler: "handler_media.lambda_handler",
@@ -86,7 +86,7 @@ export class LambdaStack extends Stack {
       code: lambda.Code.fromAsset(path.join(__dirname, "../../../lambda/"), {
         bundling: {
           image: lambda.Runtime.PYTHON_3_9.bundlingImage,
-          command: ["bash", "-c", "pip install -r requirements.txt -t /asset-output && cp -au . /asset-output"],
+          command: ["bash", "-c", "pip install -r requirements.txt -t /asset-output && cp -au . /asset-output && chmod -R 755 /asset-output"],
         },
       }),
       handler: "handler_account.lambda_handler", // file is "hello", function is "handler"
@@ -103,7 +103,7 @@ export class LambdaStack extends Stack {
       code: lambda.Code.fromAsset(path.join(__dirname, "../../../lambda/"), {
         bundling: {
           image: lambda.Runtime.PYTHON_3_9.bundlingImage,
-          command: ["bash", "-c", "pip install -r requirements.txt -t /asset-output && cp -au . /asset-output"],
+          command: ["bash", "-c", "pip install -r requirements.txt -t /asset-output && cp -au . /asset-output  && chmod -R 755 /asset-output"],
         },
       }),
       handler: "handler_appconfig.lambda_handler",
@@ -118,7 +118,7 @@ export class LambdaStack extends Stack {
       code: lambda.Code.fromAsset(path.join(__dirname, "../../../lambda/"), {
         bundling: {
           image: lambda.Runtime.PYTHON_3_9.bundlingImage,
-          command: ["bash", "-c", "pip install -r requirements.txt -t /asset-output && cp -au . /asset-output"],
+          command: ["bash", "-c", "pip install -r requirements.txt -t /asset-output && cp -au . /asset-output  && chmod -R 755 /asset-output"],
         },
       }),
       handler: "handler_search.lambda_handler",
