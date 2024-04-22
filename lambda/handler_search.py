@@ -44,6 +44,9 @@ def decode_request_context(encoded_string):
 
 def lambda_handler(event, context):
     logger.info(event)
+    print(event)
+    print(context)
+
     print("Test this is the latest version, DSP search endpoint")
     query_params = event['queryStringParameters']
     cloudfront_context = get_cloud_front_context(event)

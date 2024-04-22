@@ -23,8 +23,16 @@ def get_jwplayer_app_config(config_id):
     return res.json()
 
 
+def keep_recent_n_entries(json_data, n):
+    # Sorting the playlist by 'pubdate' in descending order
+    sorted_playlist = sorted(json_data['playlist'], key=lambda x: x['pubdate'], reverse=True)
+    # Keep only the top N entries
+    json_data['playlist'] = sorted_playlist[:n]
+    return json_data
+
+
 def get_jwplayer_playlist(playlist_id,query_string, page_offset=1, page_limit=50):
-    
+
     url = "https://cdn.jwplayer.com/v2/playlists/{}?page_limit={}&page_offset={}".format(
         playlist_id, page_limit, page_offset)
     
@@ -35,16 +43,21 @@ def get_jwplayer_playlist(playlist_id,query_string, page_offset=1, page_limit=50
         "accept": "application/json",
     }
 
-    response = requests.get(url)
-
-
     response = requests.get(url, headers=headers)
     logger.info("Api call to get playlist %s with id finised with status: %s",
                 playlist_id, response.status_code)
     if response.status_code not in [200]:
         logger.info(f"Error UNKMEDIAID: error_response {response.status_code } playlistid {playlist_id} while getting media with url: %s ", url )
         return "UNKMEDIAID"
-    return response.json()
+
+    ret_response = response.json()
+    N = int(page_limit) 
+
+    # Update the JSON data
+    updated_json = keep_recent_n_entries(ret_response, N)
+
+
+    return updated_json
 
 
 

@@ -43,7 +43,9 @@ def decode_request_context(encoded_string):
 
 def lambda_handler(event, context):
     # clear_contextvars()
-
+    print(event)
+    print(context)
+    
     logger.info("lambda handler event:%s", event)
     query_params = event['queryStringParameters']
     cloudfront_context = get_cloud_front_context(event)

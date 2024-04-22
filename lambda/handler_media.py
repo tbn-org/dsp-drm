@@ -42,6 +42,8 @@ content = obj['Body'].read().decode('utf-8')
 dsp_config = json.loads(content)
 
 def lambda_handler(event, context):
+    print(event)
+    print(context)
     logger.info("event: %s", event)
     logger.info("JWPLAYER_API_KEY: %s", JWPLAYER_API_KEY)
     jwplayer_secret = parameters.get_secret(JWPLAYER_API_KEY)
@@ -73,10 +75,9 @@ def lambda_handler(event, context):
     struc_log_context = create_struc_log_context(event)
     structlog.contextvars.bind_contextvars(**struc_log_context)
     media_id = query_params["mediaid"]
-    try:
-        tenant = query_params["tenant"]
-    except:
-        tenant = None
+
+    tenant = query_params.get("tenant","meritplus")
+
     fast_tag = "no"
     vod_tag = "no"
     # this is MSM DSP
@@ -104,7 +105,7 @@ def lambda_handler(event, context):
 
     # get the type of platform
     for x in dsp_config["app_settings"]:
-        if x["app_family_id"] == "meritplus":
+        if x["app_family_id"] == tenant:
             vod_ad_config["site_id"] = x.get("global_settings", {}).get('vod_site_id', '')
             fast_ad_config["site_id"] = x.get("global_settings", {}).get('fast_site_id', '')
             common_ad_config["min_ad_duration"] = x.get("global_settings", {}).get('min_ad_duration', '')

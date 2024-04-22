@@ -1,3 +1,4 @@
+import uuid
 import json
 import logging
 import urllib.parse
@@ -186,7 +187,8 @@ def inject_adds(media_obj, ad_markers, device_context,vod_ad_config,fast_ad_conf
         "custom_5": "preroll",
         "device_type": platform_re, 
         "player_height": device_context.get("device_height"),
-        
+        "cb": str(uuid.uuid4()),
+        "app_domain": "https://www.tbn.org/",
         "did": device_context.get("advertisingidentifier"),
 
 
