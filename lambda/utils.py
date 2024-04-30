@@ -18,11 +18,23 @@ def get_applicaster_context(event):
 
     query_params = event['queryStringParameters']
     path = event['path']
-    app_name = 'Merit Plus'
+    did = app_store = device_width = device_height = bundle_identifier = device_type = source_ip = platform = advertisingidentifier = ''
+
+    tenant_domain = event.get("requestContext", {}).get("domainName", "msm")
+
+    if "msm" in tenant_domain:
+        tenant = "meritplus"
+        app_name = 'Merit+Plus'
+    elif "positiv" in tenant_domain:
+        tenant = "positiv"
+        app_name = 'positiv'
+    else: 
+        tenant = "msm"
+
+
     user_agent = 'Mozilla/5.0 (Windows NT 10.'
     language = 'en'
     is_live = "no"
-    did = app_store = device_width = device_height = bundle_identifier = device_type = source_ip = platform = advertisingidentifier = ''
 
     ctx_query_params = {}
     if "ctx" in query_params:
@@ -80,7 +92,8 @@ def get_applicaster_context(event):
         "device_type": device_type,
         "source_ip": source_ip ,
         "advertisingidentifier" : advertisingidentifier,
-        "okta_user_id" : uid
+        "okta_user_id" : uid,
+        "tenant" : tenant
     }
 
     #added to support account management response 

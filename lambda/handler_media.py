@@ -42,8 +42,10 @@ content = obj['Body'].read().decode('utf-8')
 dsp_config = json.loads(content)
 
 def lambda_handler(event, context):
-    print(event)
-    print(context)
+    print("MEDIA event: ",event)
+    print("MEDIA context: ",context)
+
+
     logger.info("event: %s", event)
     logger.info("JWPLAYER_API_KEY: %s", JWPLAYER_API_KEY)
     jwplayer_secret = parameters.get_secret(JWPLAYER_API_KEY)
@@ -76,15 +78,18 @@ def lambda_handler(event, context):
     structlog.contextvars.bind_contextvars(**struc_log_context)
     media_id = query_params["mediaid"]
 
-    tenant = query_params.get("tenant","meritplus")
-
     fast_tag = "no"
     vod_tag = "no"
-    # this is MSM DSP
-    app_family_id = "meritplus"
     fast_ad_config = {}
     vod_ad_config = {}
-    common_ad_config = {} 
+    common_ad_config = {
+    "max_ad_duration": "",
+    "format": "",
+    "content_cat": "",
+    "content_genre": "",
+    "content_rating": "",
+    "content_channel": "",
+    "content_network": ""}
     common_ad_config["ip"] = cloudfront_context["ip_address"]
     common_ad_config["gdpr"] = gdpr
 
@@ -105,7 +110,7 @@ def lambda_handler(event, context):
 
     # get the type of platform
     for x in dsp_config["app_settings"]:
-        if x["app_family_id"] == tenant:
+        if x["app_family_id"] == applicaster_context["tenant"]:
             vod_ad_config["site_id"] = x.get("global_settings", {}).get('vod_site_id', '')
             fast_ad_config["site_id"] = x.get("global_settings", {}).get('fast_site_id', '')
             common_ad_config["min_ad_duration"] = x.get("global_settings", {}).get('min_ad_duration', '')
