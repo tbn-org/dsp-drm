@@ -107,7 +107,8 @@ def lambda_handler(event, context):
         vod_ad_config["vod_tag"] = vod_tag
         
         vod_ad_config['base_url'] = dsp_config['base_settings']['ad_tag_vod']
-
+    override_feedtype = None
+    
     # get the type of platform
     for x in dsp_config["app_settings"]:
         if x["app_family_id"] == applicaster_context["tenant"]:

@@ -190,8 +190,6 @@ def inject_adds(media_obj, ad_markers, device_context,vod_ad_config,fast_ad_conf
         "cb": str(uuid.uuid4()),
         "app_domain": "https://www.tbn.org/",
         "did": device_context.get("advertisingidentifier"),
-
-
         "player_width": device_context.get("device_width"),
         "coppa": 0
     }

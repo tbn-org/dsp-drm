@@ -29,7 +29,7 @@ def get_applicaster_context(event):
         tenant = "positiv"
         app_name = 'positiv'
     else: 
-        tenant = "msm"
+        tenant = "meritplus"
 
 
     user_agent = 'Mozilla/5.0 (Windows NT 10.'
