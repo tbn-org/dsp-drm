@@ -5,7 +5,7 @@ from urllib.parse import urlparse
 from urllib.parse import parse_qs
 import requests
 import structlog
-
+import datetime
 from structlog import configure
 from db import fetch_ad_markers_by_mediaid
 from adbreaks import inject_adds
@@ -104,6 +104,21 @@ def filter_add_link(feed_entry, base_url):
 
     feed_entry["link"] = {
         "rel": "self", "href": "{}/media?mediaid={}&disablePlayNext=false".format(base_url, feed_entry["id"])}
+
+    return feed_entry
+
+
+def date_utc(feed_entry):
+
+    try: 
+        
+        pubdate = feed_entry["extensions"]["pubdate"]
+
+        utc_time = datetime.datetime.fromtimestamp(pubdate, datetime.timezone.utc)
+
+        feed_entry["extensions"]["pubdateUtc"] = utc_time.isoformat()
+    except:
+        pass 
 
     return feed_entry
 
