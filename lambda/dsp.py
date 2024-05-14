@@ -20,6 +20,8 @@ def get_jwplayer_app_config(config_id):
         logger.exception(res.text())
         raise Exception(
             "Exception while getting jwplayer app config with id :%s.", config_id)
+    
+
     return res.json()
 
 
@@ -51,11 +53,9 @@ def get_jwplayer_playlist(playlist_id,query_string, page_offset=1, page_limit=50
         return "UNKMEDIAID"
 
     ret_response = response.json()
-    N = int(page_limit) 
-
+    N = int(ret_response.get("playlistItemLimit",page_limit )) 
     # Update the JSON data
     updated_json = keep_recent_n_entries(ret_response, N)
-
 
     return updated_json
 
@@ -108,6 +108,7 @@ def get_jwplayer_media(media_id,tenant="msm"):
     if response.status_code not in [200]:
         logger.info(f"Error UNKMEDIAID: error_response {response.status_code } mediaid {media_id} while getting media with url: %s ", url )
         return "UNKMEDIAID"
+
 
 
     return response.json()
