@@ -137,6 +137,27 @@ def filter_add_analytics(feed_entry):
     feed_entry["extensions"]["analyticsCustomProperties"] = analyticsCustomProperties
     return feed_entry
 
+
+def filter_dove_url(feed_entry):
+
+    extensions = feed_entry["extensions"]
+
+    doveurl = extensions.get("doveApproved", None)
+
+    if doveurl == "12":
+
+        feed_entry["extensions"]["doveApprovedImage"] = "URL  12 goes here "
+
+    if doveurl == "18":
+
+        feed_entry["extensions"]["doveApprovedImage"] = "URL  18 goes here "
+    if doveurl == "all":
+
+        feed_entry["extensions"]["doveApprovedImage"] = "URL for all goes here "
+
+    return feed_entry
+
+
 # create signed URLs
 def signed_url(path, expires, secret, host="https://cdn.jwplayer.com"):
     """

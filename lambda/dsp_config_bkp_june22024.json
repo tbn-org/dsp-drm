@@ -97,9 +97,8 @@
       "app_family_id": "tbnsvod",
       "global_settings": 
         {
-          "fast_site_id":"24906",
-          "fast_amagi_site_id":"35335",
-          "vod_site_id":"24600",
+          "fast_site_id":"38572",
+          "vod_site_id":"38556",
           "min_ad_duration":"6",
           "max_ad_duration":"60",
           "format":"vast",
@@ -114,65 +113,65 @@
         {
           "platform": "roku",
           "settings": {
-            "app_bundle": "4421",
+            "app_bundle": "747588",
             "app_store_url": "https://channelstore.roku.com/details/adee2de8413d590eaadec69d4136d101/tbn-networks-tv",
-            "ad_tag_vod_id": "24600"
+            "ad_tag_vod_id": "38556"
           }
         },
         {
           "platform": "amazon_fire_tv",
           "settings": {
-            "app_bundle": "B01CV28J7A",
+            "app_bundle": "B0CYHJY8WN",
             "app_store_url": "https://www.amazon.com/TBN-Watch-Shows-Live-Free/dp/B01CV28J7A",
-            "ad_tag_vod_id": "24600"
+            "ad_tag_vod_id": "38557"
           }
         },
         {
           "platform": "ios",
           "settings": {
-            "app_bundle": "348738437",
+            "app_bundle": "6477886535",
             "app_store_url": "https://apps.apple.com/us/app/tbn-watch-tv-live-on-demand/id348738437",
-            "ad_tag_vod_id": "24600"
+            "ad_tag_vod_id": "38567"
           }
         },
         {
           "platform": "android",
           "settings": {
-            "app_bundle": "tbn_mobile.android",
+            "app_bundle": "com.meritplus.android",
             "app_store_url": "https://play.google.com/store/apps/details?id=tbn_mobile.android",
-            "ad_tag_vod_id": "24600"
+            "ad_tag_vod_id": "38565"
           }
         },
         {
           "platform": "android_tv",
           "settings": {
-            "app_bundle": "tbn_mobile.android",
+            "app_bundle": "com.meritplus.android",
             "app_store_url": "https://play.google.com/store/apps/details?id=tbn_mobile.android",
-            "ad_tag_vod_id": "24600"
+            "ad_tag_vod_id": "38569"
           }
         },
         {
           "platform": "tvos",
           "settings": {
-            "app_bundle": "348738437",
+            "app_bundle": "6477886535",
             "app_store_url": "https://apps.apple.com/us/app/tbn-watch-tv-live-on-demand/id348738437?platform=appleTV",
-            "ad_tag_vod_id": "24600"
+            "ad_tag_vod_id": "38559"
           }
         },
         {
           "platform": "samsung_tv",
           "settings": {
-            "app_bundle": "",
+            "app_bundle": "G3202312033235",
             "app_store_url": "https://www.samsung.com/us/appstore/app/G3202312033235",
-            "ad_tag_vod_id": "24600"
+            "ad_tag_vod_id": "38563"
           }
         },
         {
           "platform": "lg_tv",
           "settings": {
-            "app_bundle": "1231442",
-            "app_store_url": "https://us.lgappstv.com/main/tvapp/detail?appId=1231442",
-            "ad_tag_vod_id": "24600"
+            "app_bundle": "com.meritplus.lg",
+            "app_store_url": "",
+            "ad_tag_vod_id": "38561"
           }
         }
       ]
@@ -183,8 +182,8 @@
       "app_family_id": "positiv",
       "global_settings": 
         {
-          "fast_site_id":"44987",
-          "vod_site_id":"44987",
+          "fast_site_id":"38572",
+          "vod_site_id":"38556",
           "min_ad_duration":"6",
           "max_ad_duration":"60",
           "format":"vast",
@@ -199,65 +198,65 @@
         {
           "platform": "roku",
           "settings": {
-            "app_bundle": "593151",
+            "app_bundle": "com.apppositiv",
             "app_store_url": "https://channelstore.roku.com/details/52afba6d19c820a1908d64ea9058dd92/positiv-tv",
-            "ad_tag_vod_id": "44987"
+            "ad_tag_vod_id": "38556"
           }
         },
         {
           "platform": "amazon_fire_tv",
           "settings": {
-            "app_bundle": "B08CY8FKTY",
+            "app_bundle": "com.positivtv.tv",
             "app_store_url": "https://www.amazon.com/PositivTV-LLC-Positiv-TV/dp/B08CY8FKTY",
-            "ad_tag_vod_id": "44987"
+            "ad_tag_vod_id": "38557"
           }
         },
         {
           "platform": "ios",
           "settings": {
-            "app_bundle": "",
-            "app_store_url": "https://apps.apple.com/us/app/positiv-tv/id1525416564?platform=iphone",
-            "ad_tag_vod_id": "44987"
+            "app_bundle": "6477886535",
+            "app_store_url": "https://apps.apple.com/us/app/merit/id6477886535?platform=iphone",
+            "ad_tag_vod_id": "38567"
           }
         },
         {
           "platform": "android",
           "settings": {
-            "app_bundle": "",
+            "app_bundle": "com.meritplus.android",
             "app_store_url": "https://play.google.com/store/apps/details?id=com.meritplus.android",
-            "ad_tag_vod_id": "44987"
+            "ad_tag_vod_id": "38565"
           }
         },
         {
           "platform": "android_tv",
           "settings": {
-            "app_bundle": "com.positiv.android",
+            "app_bundle": "com.meritplus.android",
             "app_store_url": "https://play.google.com/store/apps/details?id=com.meritplus.android",
-            "ad_tag_vod_id": "44987"
+            "ad_tag_vod_id": "38569"
           }
         },
         {
           "platform": "tvos",
           "settings": {
-            "app_bundle": "1525416564",
+            "app_bundle": "tv.positiv",
             "app_store_url": "https://apps.apple.com/us/app/positiv-tv/id1525416564",
-            "ad_tag_vod_id": "44987"
+            "ad_tag_vod_id": "38559"
           }
         },
         {
           "platform": "samsung_tv",
           "settings": {
-            "app_bundle": "",
+            "app_bundle": "G3202312033235",
             "app_store_url": "https://www.samsung.com/us/appstore/app/G3202312033235",
-            "ad_tag_vod_id": "44987"
+            "ad_tag_vod_id": "38563"
           }
         },
         {
           "platform": "lg_tv",
           "settings": {
-            "app_bundle": "",
+            "app_bundle": "com.meritplus.lg",
             "app_store_url": "",
-            "ad_tag_vod_id": "44987"
+            "ad_tag_vod_id": "38561"
           }
         }
       ]

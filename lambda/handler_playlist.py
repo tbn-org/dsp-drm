@@ -8,7 +8,8 @@ import boto3
 from dotenv import load_dotenv
 import structlog
 from dsp import create_playlist_feed
-from utils import configure_structured_log, create_struc_log_context, get_cloud_front_context
+from utils import configure_structured_log, create_struc_log_context, get_cloud_front_context,get_applicaster_context
+
 from urllib.parse import urlencode
 
 
@@ -49,6 +50,16 @@ def lambda_handler(event, context):
     logger.info("lambda handler event:%s", event)
     query_params = event['queryStringParameters']
     cloudfront_context = get_cloud_front_context(event)
+
+    applicaster_context = get_applicaster_context(event)
+
+    FEEDLINKURL= FEED_LINK_URL
+
+    if applicaster_context["tenant"] == "positiv":
+
+        FEEDLINKURL = FEEDLINKURL.replace("msm","positiv")
+
+
     country, city, timezone = cloudfront_context[
         "country"], cloudfront_context["city"], cloudfront_context["timezone"]
     structlog.contextvars.clear_contextvars()
@@ -88,7 +99,7 @@ def lambda_handler(event, context):
                 playlistId, page_limit, page_offset)
     applicaster_feed = create_playlist_feed(playlist_id=playlistId,query_string=query_string,override_feedtype=override_feedtype,
                                             page_limit=page_limit,
-                                            media_link_base_url=FEED_LINK_URL,
+                                            media_link_base_url=FEEDLINKURL,
                                             page_offset=page_offset,
                                             geo_location=country,
                                             feed_title_override=feed_title_override,

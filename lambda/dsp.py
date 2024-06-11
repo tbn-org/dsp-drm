@@ -5,7 +5,7 @@ from urllib.parse import parse_qs
 import requests
 import structlog
 import copy
-from filters import date_utc,filter_drm,filter_cleanup_feed, filter_geo_location, filter_add_signed_content, filter_need_authentication, filter_inject_ads, fetch_ad_markers_by_mediaid, filter_add_link, filter_feature_image, filter_add_analytics, filter_next_link, filter_override_type, filter_ssai
+from filters import filter_dove_url, date_utc,filter_drm,filter_cleanup_feed, filter_geo_location, filter_add_signed_content, filter_need_authentication, filter_inject_ads, fetch_ad_markers_by_mediaid, filter_add_link, filter_feature_image, filter_add_analytics, filter_next_link, filter_override_type, filter_ssai
 import sys 
 import math
 logger = structlog.get_logger(__name__)
@@ -355,6 +355,7 @@ def create_media_feed(args):
     pipeline_config = [
         (
             filter_inject_ads,
+            filter_dove_url, 
             filter_need_authentication,
             filter_feature_image,
             filter_add_signed_content,
@@ -364,6 +365,7 @@ def create_media_feed(args):
             filter_override_type),
         (
             [ad_breaks_table, device_context,vod_ad_config,fast_ad_config,common_ad_config],
+            [],
             [],
             [],
             [jwplayer_secret],
