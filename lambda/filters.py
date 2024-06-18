@@ -146,14 +146,14 @@ def filter_dove_url(feed_entry):
 
     if doveurl == "12":
 
-        feed_entry["extensions"]["doveApprovedImage"] = "URL  12 goes here "
+        feed_entry["extensions"]["doveApprovedImage"] = "https://assets.tbn.org/images/12_250x250-1718136237287.png"
 
     if doveurl == "18":
 
-        feed_entry["extensions"]["doveApprovedImage"] = "URL  18 goes here "
+        feed_entry["extensions"]["doveApprovedImage"] = "https://assets.tbn.org/images/18_250x250-1718136296729.png"
     if doveurl == "all":
 
-        feed_entry["extensions"]["doveApprovedImage"] = "URL for all goes here "
+        feed_entry["extensions"]["doveApprovedImage"] = "https://assets.tbn.org/images/allages_250x250-1718136327578.png"
 
     return feed_entry
 
