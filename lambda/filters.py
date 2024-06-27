@@ -5,7 +5,7 @@ from urllib.parse import urlparse
 from urllib.parse import parse_qs
 import requests
 import structlog
-
+import datetime
 from structlog import configure
 from db import fetch_ad_markers_by_mediaid
 from adbreaks import inject_adds
@@ -108,6 +108,21 @@ def filter_add_link(feed_entry, base_url):
     return feed_entry
 
 
+def date_utc(feed_entry):
+
+    try: 
+        
+        pubdate = feed_entry["extensions"]["pubdate"]
+
+        utc_time = datetime.datetime.fromtimestamp(pubdate, datetime.timezone.utc)
+
+        feed_entry["extensions"]["pubdateUtc"] = utc_time.isoformat()
+    except:
+        pass 
+
+    return feed_entry
+
+
 # Filter to add analytics
 def filter_add_analytics(feed_entry):
     extensions = feed_entry["extensions"]
@@ -121,6 +136,27 @@ def filter_add_analytics(feed_entry):
     }
     feed_entry["extensions"]["analyticsCustomProperties"] = analyticsCustomProperties
     return feed_entry
+
+
+def filter_dove_url(feed_entry):
+
+    extensions = feed_entry["extensions"]
+
+    doveurl = extensions.get("doveApproved", None)
+
+    if doveurl == "12":
+
+        feed_entry["extensions"]["doveApprovedImage"] = "https://assets.tbn.org/images/12_250x250-1718136237287.png"
+
+    if doveurl == "18":
+
+        feed_entry["extensions"]["doveApprovedImage"] = "https://assets.tbn.org/images/18_250x250-1718136296729.png"
+    if doveurl == "all":
+
+        feed_entry["extensions"]["doveApprovedImage"] = "https://assets.tbn.org/images/allages_250x250-1718136327578.png"
+
+    return feed_entry
+
 
 # create signed URLs
 def signed_url(path, expires, secret, host="https://cdn.jwplayer.com"):

@@ -5,6 +5,14 @@ import urllib.parse
 
 logger = logging.getLogger(__name__)
 
+
+slot_to_pod = {
+    1: 30,
+    2: 60,
+    3: 90,
+    4: 120
+        }
+    
 def format_showcase_ad_schedule(marker):
     offset = marker["breaktime"]
     break_mode = marker["break_mode"]
@@ -53,6 +61,13 @@ def create_showcase_ad_schedule(ad_markers):
     return ad_schedule
 
 def create_publica_url(ad_parms, base_url="https://pbs.getpublica.com/v1/s2s-hb?"):
+    slot_count = ad_parms.get('slot_count', None)
+    if slot_count is not None:
+        pod_duration = slot_to_pod.get(slot_count, None)
+        if pod_duration is not None:
+            # Remove slot_count and add pod_duration
+            ad_parms.pop('slot_count')
+            ad_parms['pod_duration'] = pod_duration
     AD_URL = base_url
     return AD_URL + urllib.parse.urlencode(ad_parms)
 
@@ -108,6 +123,7 @@ def prepare_video_ad_extention(media_item,markers, ad_parms):
             ad_parms = ad_parms
             ad_parms["custom_5"] = custom5
             AD_URL = create_publica_url(ad_parms)
+
             ad_parms["slot_count"] = 1
 
             video_ads.append({

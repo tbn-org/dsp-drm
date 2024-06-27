@@ -134,7 +134,7 @@ def lambda_handler(event, context):
                     if vod_tag == "yes":
                         vod_ad_config['site_id'] = i["settings"]['ad_tag_vod_id']
                     if fast_tag == "yes":
-                        fast_ad_config['site_id'] = i["settings"]['ad_tag_fast_id']
+                        fast_ad_config['site_id'] = x.get("global_settings", {}).get('fast_site_id', '')
                     vod_ad_config['site_id'] = i["settings"]['ad_tag_vod_id']
 
     logger.info("Getting media feed with id :%s", media_id)

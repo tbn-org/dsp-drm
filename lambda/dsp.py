@@ -5,7 +5,7 @@ from urllib.parse import parse_qs
 import requests
 import structlog
 import copy
-from filters import filter_drm,filter_cleanup_feed, filter_geo_location, filter_add_signed_content, filter_need_authentication, filter_inject_ads, fetch_ad_markers_by_mediaid, filter_add_link, filter_feature_image, filter_add_analytics, filter_next_link, filter_override_type, filter_ssai
+from filters import filter_dove_url, date_utc,filter_drm,filter_cleanup_feed, filter_geo_location, filter_add_signed_content, filter_need_authentication, filter_inject_ads, fetch_ad_markers_by_mediaid, filter_add_link, filter_feature_image, filter_add_analytics, filter_next_link, filter_override_type, filter_ssai
 import sys 
 import math
 logger = structlog.get_logger(__name__)
@@ -20,15 +20,23 @@ def get_jwplayer_app_config(config_id):
         logger.exception(res.text())
         raise Exception(
             "Exception while getting jwplayer app config with id :%s.", config_id)
+    
+
     return res.json()
 
 
+# def keep_recent_n_entries(json_data, n):
+#     # Sorting the playlist by 'pubdate' in descending order
+#     sorted_playlist = sorted(json_data['playlist'], key=lambda x: x['pubdate'], reverse=True)
+#     # Keep only the top N entries
+#     json_data['playlist'] = sorted_playlist[:n]
+#     return json_data
+
 def keep_recent_n_entries(json_data, n):
-    # Sorting the playlist by 'pubdate' in descending order
-    sorted_playlist = sorted(json_data['playlist'], key=lambda x: x['pubdate'], reverse=True)
-    # Keep only the top N entries
-    json_data['playlist'] = sorted_playlist[:n]
+    # Keep only the first N entries without sorting
+    json_data['playlist'] = json_data['playlist'][:n]
     return json_data
+
 
 
 def get_jwplayer_playlist(playlist_id,query_string, page_offset=1, page_limit=50):
@@ -51,11 +59,9 @@ def get_jwplayer_playlist(playlist_id,query_string, page_offset=1, page_limit=50
         return "UNKMEDIAID"
 
     ret_response = response.json()
-    N = int(page_limit) 
-
+    N = int(ret_response.get("playlistItemLimit",page_limit )) 
     # Update the JSON data
     updated_json = keep_recent_n_entries(ret_response, N)
-
 
     return updated_json
 
@@ -108,6 +114,7 @@ def get_jwplayer_media(media_id,tenant="msm"):
     if response.status_code not in [200]:
         logger.info(f"Error UNKMEDIAID: error_response {response.status_code } mediaid {media_id} while getting media with url: %s ", url )
         return "UNKMEDIAID"
+
 
 
     return response.json()
@@ -250,6 +257,7 @@ def create_playlist_feed(playlist_id,
     pipeline_config = [
         (
             filter_need_authentication,
+            date_utc,
             filter_add_link,
             filter_feature_image,
             filter_add_analytics,
@@ -257,6 +265,7 @@ def create_playlist_feed(playlist_id,
             filter_cleanup_feed,
             filter_override_type),
         (
+            [],
             [],
             [media_link_base_url],
             [],
@@ -343,9 +352,11 @@ def create_media_feed(args):
     applicaster_feed = create_applicaster_feed_from_media(playlist,override_feedtype)
 
 
+
     pipeline_config = [
         (
             filter_inject_ads,
+            filter_dove_url, 
             filter_need_authentication,
             filter_feature_image,
             filter_add_signed_content,
@@ -355,6 +366,7 @@ def create_media_feed(args):
             filter_override_type),
         (
             [ad_breaks_table, device_context,vod_ad_config,fast_ad_config,common_ad_config],
+            [],
             [],
             [],
             [jwplayer_secret],
